@@ -1,0 +1,1225 @@
+/**************/
+/*    body    */
+/**************/
+body
+{
+   font-family:Arial;
+   color: Black;
+   margin:0px;
+   padding:0px;
+   background-color:White;
+   overflow-y: scroll;
+   font-size:12px;
+   height:100%;
+   cursor:default;
+}
+
+/***********************/
+/*   general classes   */
+/***********************/
+.c
+{
+   text-align:center;
+}
+
+.right
+{
+   text-align:right;
+}
+
+.left
+{
+   text-align:left;
+}
+
+.fett
+{
+   font-weight:bold;
+}
+
+.norm
+{
+   font-weight:normal;
+}
+
+a:link, 
+a:visited, 
+a:hover, 
+a:active
+{
+   text-decoration:none;
+   outline: none;
+}
+
+.interactive
+{
+   cursor: pointer;
+}
+
+.interactive:hover 
+{
+   text-shadow: White -3px -3px 10px,
+                White 3px -3px 10px,
+                White 3px 3px 10px,
+				White -3px 3px 10px;
+
+   color:#C01C00;
+}
+
+/**************/
+/*   layout   */
+/**************/
+#layout_main
+{
+   width: 1000px;
+   background-color: Blue;
+   margin-top: 10px;
+   margin-left:auto;
+   margin-right:auto;
+}
+
+#layout_footer
+{
+   background-color:White;
+   color:#999;
+   border-bottom:1px solid #ccc;
+   border-top:1px solid #ccc;
+   padding-left:10px;
+   clear:both;
+}
+
+#layout_two_columns_navigation
+{
+   float:left;
+   width:100%;
+   position:relative;
+   right:790px;
+   background-color: #DEDEDE;
+   background-image:url(../img/navigation_bg.png);
+   background-position:790px;
+}
+
+#layout_two_columns_content
+{
+   clear:left;
+   float:left;
+   width:100%;
+   overflow:hidden;
+   background-color: #FFFFFF;
+   background-image:url(../img/content_bg.png);
+   background-position:210px;
+}
+
+#layout_navigation
+{
+   float:left;
+   width:210px;
+   position:relative;
+   left:790px;
+   overflow:hidden;
+}
+
+#layout_content
+{
+   float:left;
+   width:790px;
+   position:relative;
+   left:790px;
+   overflow:hidden;
+   margin-top:10px;
+   margin-bottom:5px;
+}
+
+/**********************/
+/*   navigationbar    */
+/**********************/
+#navigationbar
+{
+   display:block;
+   margin-top:10px;
+   margin-bottom:10px;
+}
+
+/************************/
+/*   navigationbutton   */
+/************************/
+.navigationbutton
+{
+   width:180px;
+   line-height:40px;
+   display:block;
+   font-size:13px;
+   /*font-weight: bold;*/
+   cursor:pointer;
+   margin:0px;
+   margin-left:14px;
+   margin-bottom:1px;
+   text-align:center;
+   color:White;
+   background-color:#666666;
+   background-image:url(../img/nav_btn_bg.png);   
+}
+
+.navigationbutton.active,
+.navigationbutton:hover.active
+{
+   color:White;
+   background-color:#C01C00;
+   cursor: default;
+}
+
+.navigationbutton:hover
+{
+   background-color:#777777;
+}
+
+/******************************/
+/*   navigation tippstatistik */
+/******************************/
+ul.tippstatistik_navi
+{
+   margin:0px;
+   padding:0px;
+   margin-bottom:5px;
+   float:left;
+}
+
+ul.tippstatistik_navi li
+{
+   display: inline-block;
+   width:180px;
+   line-height:40px;
+   font-size:13px;
+   /*font-weight: bold;*/
+   cursor:pointer;
+   margin:0px;
+   margin-right:5px;
+   text-align:center;
+   color:White;
+   background-color:#666666;
+   background-image:url(../img/nav_btn_bg.png);   
+}
+
+ul.tippstatistik_navi li.active, 
+ul.tippstatistik_navi li.active:hover
+{
+   color:White;
+   background-color:#C01C00;
+   cursor: default;
+}
+
+ul.tippstatistik_navi li:hover
+{
+   background-color: #777777;
+}
+
+/**********************/
+/*   header           */
+/**********************/
+#kicktipp_logo
+{
+   background-color:#C01C00;
+   color:White;
+   font-size:30px;
+   padding-left:10px;
+   line-height:46px;
+   font-weight:bold;
+}
+
+#kicktipp_logo a
+{
+   display:table-cell;
+}
+
+#kicktipp_logo a:link, 
+#kicktipp_logo a:visited, 
+#kicktipp_logo a:active
+{
+   color: White;
+}
+
+#kicktipp_logo a:hover
+{
+   color: #C01C00;
+}
+
+#kicktipp_runde
+{
+   background-color:#666666;
+   color:White;
+   font-size:13px;
+   /*font-weight:bold;*/
+   height:26px;
+   line-height:26px;
+   padding-left:0px;
+}
+
+.kicktipp_blaetterpfeil
+{
+   background-color:#C01C00;
+   text-align:center;
+   font-size: 13px;
+   line-height:24px;
+   height:24px;
+   border:1px solid #800000
+}
+
+.kicktipp_blaetterpfeil.disabled
+{
+   color: #C01C00;
+}
+
+.kicktipp_blaetterpfeil:hover
+{
+   background-color:#B21700;
+   cursor:Pointer;
+}
+
+.kicktipp_blaetterpfeil.disabled:hover
+{
+   color: #C01C00;
+   cursor:default;
+   background-color:#C01C00;
+}
+
+/************************/
+/*   spieltag_auswahl   */
+/************************/
+#dropdownlist_spieltag
+{
+   width:130px;
+}
+
+#spieltag_auswahl
+{
+   font-size:13px;
+}
+
+#spieltag_auswahl .sl-container:hover
+{
+   background-color:#B21700;
+}
+
+#spieltag_auswahl .sl-container 
+{
+   -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   height:24px;
+   line-height:21px;
+   border:1px solid #800000
+}
+
+#spieltag_auswahl .sl-placeholder-container
+{
+   outline: none;
+   border: none;
+   text-align:center;
+}
+
+#spieltag_auswahl .sl-placeholder-container:focus, 
+#spieltag_auswahl .sl-container.sl-open .sl-placeholder-container
+{
+   outline: none;
+   box-shadow:none;
+}
+
+#spieltag_auswahl .sl-button
+{
+   background: none;
+}
+
+#spieltag_auswahl.sl-placeholder-container:hover .sl-button
+{
+    background: none;
+}
+
+#spieltag_auswahl .sl-options
+{
+   width:132px;
+   max-height:1080px;
+   box-shadow: 3px 3px 5px 0 #000000;
+}
+
+#spieltag_auswahl .sl-container .sl-options li a
+{
+   font-size:12px;
+   font-weight:normal;
+   font-family: Arial;
+   margin-left:3px;
+   margin-right:3px;
+   line-height:19px;
+}
+
+#spieltag_auswahl .sl-container .sl-options li a:hover
+{
+   background: navy;
+   color: #fff;
+}
+
+#spieltag_auswahl .sl-container .sl-options .sl-selected
+{
+    background: skyblue;
+}
+
+/************************/
+/*   tipprunde_auswahl   */
+/************************/
+#dropdownlist_tipprunde
+{
+   width:197px;
+}
+
+#tipprunde_auswahl .sl-container:hover
+{
+   background-color:#777777;
+}
+
+#tipprunde_auswahl .sl-container
+{
+   -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   height:24px;
+   line-height:21px;
+   margin-top:1px;
+}
+
+#tipprunde_auswahl .sl-placeholder-container
+{
+   outline: none;
+   border: none;
+   text-align:left;
+   padding-left:10px;
+}
+
+#tipprunde_auswahl .sl-placeholder-container:focus, 
+#tipprunde_auswahl .sl-container.sl-open .sl-placeholder-container
+{
+   outline: none;
+   box-shadow:none;
+}
+
+#tipprunde_auswahl .sl-button
+{
+   background: none;
+}
+
+#tipprunde_auswahl .sl-options
+{
+   width:207px;
+   max-height:1080px;
+   box-shadow: 3px 3px 5px 0 #000000;
+}
+
+#tipprunde_auswahl .sl-container .sl-options li a
+{
+   line-height:19px;
+}
+
+/***********************/
+/*   spieler_auswahl   */
+/***********************/
+#spieler_auswahl .sl-container
+{
+   margin-bottom: 5px;
+   width: 175px;
+   height: 35px;
+
+   -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+#spieler_auswahl .sl-placeholder-container 
+{
+   outline: none;
+   height: 21px;
+   line-height:21px;
+   font-size:13px;
+   background-color: White;
+   font-weight:bold;
+   border:5px solid #C01C00;
+}
+
+#spieler_auswahl .sl-placeholder-container:focus, 
+#spieler_auswahl .sl-container.sl-open .sl-placeholder-container
+{
+   outline: none;
+   box-shadow: 0 0 20px 0 #9ecaed inset;
+}
+
+#spieler_auswahl .sl-options
+{
+   width:173px;
+   max-height:1080px;
+   box-shadow: 3px 3px 5px 0px #333333;
+   top:29px;
+}
+
+#spieler_auswahl .sl-container .sl-options li a
+{
+   font-size:13px;
+   margin-left:3px;
+   margin-right:3px;
+   line-height:19px;
+}
+
+/*****************/
+/*   container   */
+/*****************/
+.container
+{
+   display:none;
+   margin-left:auto;
+   margin-right:auto;
+   padding-left:20px; 
+   padding-right:20px;
+}
+
+/**********************/
+/*   table kicktipp   */
+/**********************/
+table.kicktipp
+{
+   border-collapse:collapse;
+   margin-bottom:5px;
+   margin-left:auto;
+   margin-right:auto;
+
+   border: 1px solid #777777;
+   border-top: 1px solid #660D00;
+}
+
+table.kicktipp th
+{
+   font-weight:normal;
+}
+
+table.kicktipp.l th, 
+table.kicktipp.l td, 
+table.kicktipp.c th.l, 
+table.kicktipp.c td.l
+{
+   text-align:left;
+}
+
+table.kicktipp.c th, 
+table.kicktipp.c td, 
+table.kicktipp.l th.c, 
+table.kicktipp.l td.c
+{
+   text-align:center;
+}
+
+table.kicktipp.l th.r, 
+table.kicktipp.l td.r, 
+table.kicktipp.c th.r, 
+table.kicktipp.c td.r
+{
+   text-align:right;
+}
+
+table.kicktipp tr.even
+{
+   background-color:#E0E0E0;
+}
+
+table.kicktipp tr.odd
+{
+   background-color:#F7F7F7;
+}
+
+table.kicktipp tr.winner_of_the_day, 
+table.kicktipp tr.winner_of_the_day.nick
+{
+   background-color:#D6D79D;
+}
+
+table.kicktipp tr.even.nick, 
+table.kicktipp tr.odd.nick
+{
+   background-color:#FFDD00;
+}
+
+table.kicktipp span.winner_of_the_day
+{
+   color: #C01C00;
+}
+
+table.kicktipp td, 
+tr.single_head th
+{
+   height:24px;
+}
+
+table.kicktipp tr.multi_head th
+{
+   height:16px;
+}
+
+table.kicktipp tr th
+{
+   background-color:#C01C00;
+   color:White;
+}
+
+table.kicktipp tr td.l_bvl, 
+table.kicktipp tr td.r_bvl, 
+table.kicktipp th.l_bvl, 
+table.kicktipp tr th.r_bvl
+{
+   width:5px;
+}
+
+table.kicktipp sub
+{
+   color:#C01C00;
+   font-size:11px;
+   position: relative;
+   vertical-align: baseline;
+   bottom: -0.25em;
+   padding-left:1px;
+}
+
+table.kicktipp zaehler
+{
+   font-size:11px;
+   position: relative;
+   vertical-align: baseline;
+   bottom: 0.25em;
+   padding-left:1px;
+}
+
+table.kicktipp nenner
+{
+   font-size:11px;
+   position: relative;
+   vertical-align: baseline;
+   bottom: -0.25em;
+   padding-right:1px;
+}
+
+table.kicktipp .nullpkt
+{
+   color:#999999;
+}
+
+table.kicktipp .max_trefferwert, 
+table.kicktipp .min_trefferwert
+{
+   padding-left:3px;
+   padding-right:3px;
+   padding-top:1px;
+   padding-bottom:1px;
+}
+
+table.kicktipp .min_trefferwert
+{
+   background-color:#FF0000;
+}
+
+table.kicktipp .max_trefferwert
+{
+   background-color:#00BB00;
+}
+
+table.kicktipp .max_wert 
+{
+   padding-left:5px;
+   padding-right:5px;
+   padding-top:3px;
+   padding-bottom:3px;
+   background-color:#00BB00;
+}
+
+table.kicktipp .o_avg
+{
+   color:#00A000;
+}
+
+table.kicktipp .u_avg
+{
+   color:#FF0000;
+}
+
+table.kicktipp td.pad_l, 
+table.kicktipp th.pad_l
+{
+   padding-left:10px;
+}
+
+table.kicktipp td.pad_r, 
+table.kicktipp th.pad_r
+{
+   padding-right:10px;
+}
+
+table.kicktipp td.pad_r20, 
+able.kicktipp th.pad_r20
+{
+   padding-right:20px;
+}
+
+table.kicktipp.hinrunde, 
+table.kicktipp.rueckrunde
+{
+   display:none;
+}
+
+table.kicktipp td.inaktiv
+{
+   color:gray;
+}
+
+/*************/
+/*   betrag  */
+/*************/
+.betrag_positiv, 
+.betrag_negativ, 
+.betrag
+{
+   font-weight:bold;
+}
+
+.betrag_positiv
+{
+   color:#008000;
+}
+
+.betrag_negativ
+{
+   color:#800000;
+}
+
+.betrag
+{
+   color:Black;
+}   
+
+/********************************************/
+/*   nickname change legend                 */
+/********************************************/
+p.nicknamechangelegendtitle
+{
+   margin-bottom: 4px;
+}
+
+/********************************************/
+/*   diagramm_spielausgang_nach_tendenz     */
+/********************************************/
+#diagramm_spielausgang_nach_tendenz
+{
+   width:745px;
+   height:125px;
+   background-color:White;
+}
+
+#diagramm_spielausgang_nach_tendenz .lines path
+{
+   stroke: #000000;
+   stroke-width: 1.5;
+   fill: none;
+}
+
+#diagramm_spielausgang_nach_tendenz .labels text
+{
+   font-size: 12px;
+}
+
+/**********************************/
+/*   diagramm ergebnisverteilung  */
+/**********************************/
+#diagramm_ergebnisverteilung_heim, 
+#diagramm_ergebnisverteilung_remis, 
+#diagramm_ergebnisverteilung_ausw
+{
+   width:244px;
+   height:200px;
+   background-color:White;
+}
+
+#diagramm_ergebnisverteilung_heim .axis_tick_label, 
+#diagramm_ergebnisverteilung_remis .axis_tick_label, 
+#diagramm_ergebnisverteilung_ausw .axis_tick_label,
+#diagramm_ergebnisverteilung_heim .in_label, 
+#diagramm_ergebnisverteilung_remis .in_label, 
+#diagramm_ergebnisverteilung_ausw .in_label,
+#diagramm_ergebnisverteilung_heim .out_label, 
+#diagramm_ergebnisverteilung_remis .out_label, 
+#diagramm_ergebnisverteilung_ausw .out_label
+{
+   font-size:11px;
+   font-family:"Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;
+}
+
+#diagramm_ergebnisverteilung_heim .axis_tick_label, 
+#diagramm_ergebnisverteilung_remis .axis_tick_label, 
+#diagramm_ergebnisverteilung_ausw .axis_tick_label
+{
+   fill: #000000;
+   text-anchor:end;
+}
+
+#diagramm_ergebnisverteilung_heim .in_label, 
+#diagramm_ergebnisverteilung_remis .in_label, 
+#diagramm_ergebnisverteilung_ausw .in_label
+{
+   fill: #FFFFFF;
+   text-anchor:middle;
+}
+
+#diagramm_ergebnisverteilung_heim .out_label, 
+#diagramm_ergebnisverteilung_remis .out_label, 
+#diagramm_ergebnisverteilung_ausw .out_label
+{
+   fill: #000000;
+   text-anchor:start;
+}
+
+/************************************/
+/*   diagramm platzierungsverlauf   */
+/************************************/
+#diagramm_platzierungsverlauf
+{
+   width:746px;
+   height:300px;
+   background-color:White;
+}
+
+#diagramm_platzierungsverlauf .line
+{
+  fill: none;
+  stroke-width: 3px;
+  stroke: #3B5BD9;
+}
+
+#diagramm_platzierungsverlauf .gridline
+{
+   stroke-width: 1;
+   stroke: #888888;
+   shape-rendering: crispEdges;
+}   
+
+#diagramm_platzierungsverlauf .path_point
+{
+  fill: #3B5BD9;
+}
+
+#diagramm_platzierungsverlauf .axis_tick_label
+{
+   fill: #808080;
+   font-size:11px;
+   font-family:"Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;
+   text-anchor:middle;
+}
+
+#diagramm_platzierungsverlauf .axis_label
+{
+   fill: #4D759E;
+   font-size:12px;
+   font-family:"Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;
+   text-anchor:middle;
+   font-weight:bold;
+}
+
+#diagramm_platzierungsverlauf .label
+{
+   font-weight:bold;
+   font-size:11px;
+   text-shadow: -1px 0px 1px #FFFFFF, 0px -1px 1px #FFFFFF, 1px 0px 1px #FFFFFF, 0px 1px 1px #FFFFFF;
+   font-family:"Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;
+   text-anchor: middle;
+   fill: #000080;
+}
+
+/************************************/
+/*   diagramm spieltagplatzierung   */
+/************************************/
+#diagramm_spieltagplatzierung
+{
+   width:746px;
+   height:135px;
+   background-color:White;
+}
+
+#diagramm_spieltagplatzierung .gridline
+{
+   stroke-width: 1;
+   stroke: #DDDDDD;
+   shape-rendering: crispEdges;
+}   
+
+#diagramm_spieltagplatzierung .axis_tick_label
+{
+   fill: #808080;
+   font-size:11px;
+   font-family:"Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;
+   text-anchor:middle;
+}
+
+#diagramm_spieltagplatzierung .axis_label
+{
+   fill: #4D759E;
+   font-size:12px;
+   font-family:"Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;
+   text-anchor:middle;
+   font-weight:bold;
+}
+
+#diagramm_spieltagplatzierung .label
+{
+   font-weight:bold;
+   font-size:11px;
+   text-shadow: -1px 0px 1px #FFFFFF, 0px -1px 1px #FFFFFF, 1px 0px 1px #FFFFFF, 0px 1px 1px #FFFFFF;
+   font-family:"Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;
+   text-anchor: middle;
+   fill: #000000;
+}
+
+#diagramm_spieltagplatzierung .legend
+{
+   fill: #4D759E;
+   font-size:12px;
+   font-family:"Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;
+   text-anchor:start;
+}
+
+/**************************************/
+/*   diagramm punkte_pro_mannschaft   */
+/**************************************/
+#diagramm_punkte_pro_mannschaft
+{
+   width:367px;
+   height:300px;
+   background-color:White;
+}
+
+#diagramm_punkte_pro_mannschaft .axis_tick_label,
+#diagramm_punkte_pro_mannschaft .in_label,
+#diagramm_punkte_pro_mannschaft .out_label
+{
+   font-size:11px;
+   font-family:"Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;
+}
+
+#diagramm_punkte_pro_mannschaft .axis_tick_label
+{
+   fill: #000000;
+   text-anchor:end;
+}
+
+#diagramm_punkte_pro_mannschaft .in_label
+{
+   fill: #FFFFFF;
+   text-anchor:middle;
+}
+
+#diagramm_punkte_pro_mannschaft .out_label
+{
+   fill: #000000;
+   text-anchor:start;
+}
+
+/****************************/
+/*   diagramm tipptreffer   */
+/***************************/
+#diagramm_tipptreffer
+{
+   width:367px;
+   height:125px;
+   background-color:White;
+}
+
+#diagramm_tipptreffer .lines path
+{
+   stroke: #000000;
+   stroke-width: 1.5;
+   fill: none;
+}
+
+#diagramm_tipptreffer .labels text
+{
+   font-size: 12px;
+}
+
+/********************************************/
+/*   diagramm tippverteilung_nach_tendenz   */
+/********************************************/
+#diagramm_tippverteilung_nach_tendenz
+{
+   width:367px;
+   height:125px;
+   background-color:White;
+}
+
+#diagramm_tippverteilung_nach_tendenz .lines path
+{
+   stroke: #000000;
+   stroke-width: 1.5;
+   fill: none;
+}
+
+#diagramm_tippverteilung_nach_tendenz .labels text
+{
+   font-size: 12px;
+}
+
+/******************************/
+/*   diagramm punkteabstand   */
+/******************************/
+#diagramm_punkteabstand
+{
+   width:367px;
+   height:300px;
+   background-color:White;
+}
+
+#diagramm_punkteabstand .axis_tick_label, 
+#diagramm_punkteabstand .label
+{
+   fill: #000000;
+   font-size:11px;
+   font-family:"Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;
+   text-anchor:middle;
+}
+
+#diagramm_punkteabstand .label.positive
+{
+   text-anchor:start;
+}
+
+#diagramm_punkteabstand .label.negative, 
+#diagramm_punkteabstand .axis_tick_label
+{
+   text-anchor:end;
+}
+
+/**********************************/
+/*   diagramm spieltagpunkte      */
+/**********************************/
+#diagramm_spieltagpunkte_hinrunde, 
+#diagramm_spieltagpunkte_rueckrunde
+{
+   width: 693px;
+   height: 350px;
+   background-color:White;
+}
+
+#diagramm_spieltagpunkte_hinrunde svg, 
+#diagramm_spieltagpunkte_rueckrunde svg
+{
+   background-color: #FFFFFF;
+}
+
+#diagramm_spieltagpunkte_hinrunde .line, 
+#diagramm_spieltagpunkte_rueckrunde .line
+{
+  fill: none;
+  stroke-width: 3px;
+}
+
+#diagramm_spieltagpunkte_hinrunde .gridline, 
+#diagramm_spieltagpunkte_rueckrunde .gridline
+{
+   stroke-width: 1;
+   stroke: #C0C0C0;
+   shape-rendering: crispEdges;
+}   
+
+/* MIN */
+
+#diagramm_spieltagpunkte_hinrunde .line.min, 
+#diagramm_spieltagpunkte_rueckrunde .line.min,
+#diagramm_spieltagpunkte_hinrunde .legend_line.min, 
+#diagramm_spieltagpunkte_rueckrunde .legend_line.min
+{
+   stroke: #FF0000
+}
+
+#diagramm_spieltagpunkte_hinrunde .path_point.min,
+#diagramm_spieltagpunkte_rueckrunde .path_point.min,
+#diagramm_spieltagpunkte_hinrunde .legend_point.min,
+#diagramm_spieltagpunkte_rueckrunde .legend_point.min
+{
+   fill: #FF0000;
+}
+
+#diagramm_spieltagpunkte_hinrunde .label.min,
+#diagramm_spieltagpunkte_rueckrunde .label.min
+{
+   fill: #800000;
+}
+
+/* AVG */
+
+#diagramm_spieltagpunkte_hinrunde .line.avg,
+#diagramm_spieltagpunkte_rueckrunde .line.avg,
+#diagramm_spieltagpunkte_hinrunde .legend_line.avg, 
+#diagramm_spieltagpunkte_rueckrunde .legend_line.avg
+{
+   stroke: #FFFF00
+}
+
+#diagramm_spieltagpunkte_hinrunde .path_point.avg,
+#diagramm_spieltagpunkte_rueckrunde .path_point.avg,
+#diagramm_spieltagpunkte_hinrunde .legend_point.avg,
+#diagramm_spieltagpunkte_rueckrunde .legend_point.avg
+{
+   fill: #FFFF00;
+}
+
+#diagramm_spieltagpunkte_hinrunde .label.avg,
+#diagramm_spieltagpunkte_rueckrunde .label.avg
+{
+   fill: #806000;
+}
+
+/* MAX */
+
+#diagramm_spieltagpunkte_hinrunde .line.max,
+#diagramm_spieltagpunkte_rueckrunde .line.max,
+#diagramm_spieltagpunkte_hinrunde .legend_line.max, 
+#diagramm_spieltagpunkte_rueckrunde .legend_line.max
+{
+   stroke: #00CC00;
+}
+
+#diagramm_spieltagpunkte_hinrunde .path_point.max,
+#diagramm_spieltagpunkte_rueckrunde .path_point.max,
+#diagramm_spieltagpunkte_hinrunde .legend_point.max,
+#diagramm_spieltagpunkte_rueckrunde .legend_point.max
+{
+   fill: #00CC00;
+}
+
+#diagramm_spieltagpunkte_hinrunde .label.max,
+#diagramm_spieltagpunkte_rueckrunde .label.max
+{
+   fill: #004000;
+}
+
+#diagramm_spieltagpunkte_hinrunde .label,
+#diagramm_spieltagpunkte_rueckrunde .label
+{
+   font-weight:bold;
+   font-size:11px;
+   text-shadow: -1px 0px 1px #FFFFFF, 0px -1px 1px #FFFFFF, 1px 0px 1px #FFFFFF, 0px 1px 1px #FFFFFF;
+   font-family:"Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;
+   text-anchor: middle;
+}
+
+#diagramm_spieltagpunkte_hinrunde .axis_tick_label,
+#diagramm_spieltagpunkte_rueckrunde .axis_tick_label
+{
+   fill: #808080;
+   font-size:11px;
+   font-family:"Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;
+   text-anchor:middle;
+}
+
+#diagramm_spieltagpunkte_hinrunde .axis_label,
+#diagramm_spieltagpunkte_rueckrunde .axis_label
+{
+   fill: #4D759E;
+   font-size:12px;
+   font-family:"Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;
+   text-anchor:middle;
+   font-weight:bold;
+}
+
+#diagramm_spieltagpunkte_hinrunde .legend,
+#diagramm_spieltagpunkte_rueckrunde .legend
+{
+   fill: #4D759E;
+   font-size:12px;
+   font-family:"Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;
+   text-anchor:start;
+}
+
+#diagramm_spieltagpunkte_hinrunde .legend_line, 
+#diagramm_spieltagpunkte_rueckrunde .legend_line
+{
+   stroke-width: 3px;
+}
+
+/***************************************/
+/*   diagramm pkt_diff_zum_avg,        */
+/*  diagramm_pkt_abstand_zur_fuehrung  */
+/***************************************/
+#diagramm_pkt_abstand_zum_avg_hinrunde, 
+#diagramm_pkt_abstand_zum_avg_rueckrunde,
+#diagramm_pkt_abstand_zur_fuehrung_hinrunde,
+#diagramm_pkt_abstand_zur_fuehrung_rueckrunde
+{
+   width:745px;
+   height:300px;
+   background-color:White;
+}
+
+#diagramm_pkt_abstand_zum_avg_hinrunde .gridline,
+#diagramm_pkt_abstand_zum_avg_rueckrunde .gridline,
+#diagramm_pkt_abstand_zur_fuehrung_hinrunde .gridline,
+#diagramm_pkt_abstand_zur_fuehrung_rueckrunde .gridline
+{
+   stroke-width: 1;
+   stroke: #C0C0C0;
+   shape-rendering: crispEdges;
+}   
+
+#diagramm_pkt_abstand_zum_avg_hinrunde .axis_tick_label,
+#diagramm_pkt_abstand_zum_avg_rueckrunde .axis_tick_label,
+#diagramm_pkt_abstand_zur_fuehrung_hinrunde .axis_tick_label,
+#diagramm_pkt_abstand_zur_fuehrung_rueckrunde .axis_tick_label
+{
+   fill: #808080;
+   font-size:11px;
+   font-family:"Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;
+   text-anchor:middle;
+}
+
+#diagramm_pkt_abstand_zum_avg_hinrunde .axis_label,
+#diagramm_pkt_abstand_zum_avg_rueckrunde .axis_label,
+#diagramm_pkt_abstand_zur_fuehrung_hinrunde .axis_label,
+#diagramm_pkt_abstand_zur_fuehrung_rueckrunde .axis_label
+{
+   fill: #4D759E;
+   font-size:12px;
+   font-family:"Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;
+   text-anchor:middle;
+   font-weight:bold;
+}
+
+#diagramm_pkt_abstand_zum_avg_hinrunde .label,
+#diagramm_pkt_abstand_zum_avg_rueckrunde .label,
+#diagramm_pkt_abstand_zur_fuehrung_hinrunde .label,
+#diagramm_pkt_abstand_zur_fuehrung_rueckrunde .label
+{
+   font-family:"Lucida Grande","Lucida Sans Unicode",Verdana,Arial,Helvetica,sans-serif;
+   font-size: 11px;
+   font-weight:bold;
+   text-anchor:middle;
+}
+
+#diagramm_pkt_abstand_zum_avg_hinrunde .label.positive,
+#diagramm_pkt_abstand_zum_avg_rueckrunde .label.positive,
+#diagramm_pkt_abstand_zur_fuehrung_hinrunde .label.positive,
+#diagramm_pkt_abstand_zur_fuehrung_rueckrunde .label.positive
+{
+   fill: #004000;
+}
+
+#diagramm_pkt_abstand_zum_avg_hinrunde .label.negative,
+#diagramm_pkt_abstand_zum_avg_rueckrunde .label.negative,
+#diagramm_pkt_abstand_zur_fuehrung_hinrunde .label.negative,
+#diagramm_pkt_abstand_zur_fuehrung_rueckrunde .label.negative
+{
+   fill: #600000;
+}
+
