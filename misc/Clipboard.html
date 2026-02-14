@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Text kopieren</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 5px;
+    }
+
+    .button-wrapper {
+      position: relative;
+      margin-bottom: 30px;
+      width: fit-content;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 16px;
+      min-width: 200px;
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .copied-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 80%;
+      height: 80%;
+      transform: translate(-50%, -50%);
+      background-color: yellow;
+      color: black;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 2;
+      border-radius: 6px;
+      border: 1px solid black;
+    }
+
+    .copied-overlay.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="button-wrapper">
+    <div class="copied-overlay">Text kopiert!</div>
+    <button onclick="copyTextWithOverlay(this, 'Übersetze, Lautschrift, Hintergrund, Synonyme, Beispielsätze')">Übersetzung</button>
+  </div>
+
+  <!--
+  <div class="button-wrapper">
+    <div class="copied-overlay">Text kopiert!</div>
+    <button onclick="copyTextWithOverlay(this, 'Text 2')">Kopiere Text 2</button>
+  </div>
+  -->
+
+  <script>
+    function copyTextWithOverlay(button, text) {
+      // Text kopieren (kompatibel für iPad/Safari)
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+      } catch (err) {
+        alert('Kopieren fehlgeschlagen: ' + err);
+      }
+      document.body.removeChild(textarea);
+
+      // Overlay anzeigen
+      const wrapper = button.parentElement;
+      const overlay = wrapper.querySelector('.copied-overlay');
+      overlay.classList.add('show');
+      setTimeout(() => {
+        overlay.classList.remove('show');
+      }, 400);
+    }
+  </script>
+
+</body>
+</html>
