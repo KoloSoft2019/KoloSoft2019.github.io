@@ -1,0 +1,1082 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Startseite</title>
+
+    <script type="text/javascript">
+
+    function formatDateToString(date)
+    {
+       var dd = (date.getDate() < 10 ? '0' : '') + date.getDate();
+       var MM = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
+       var yyyy = date.getFullYear();
+
+       // create the format you want
+       return (yyyy + "-" + MM + "-" + dd);
+    }
+
+    function addDays(date, days)
+    {
+          var result = new Date(date);
+          result.setDate(result.getDate() + days);
+          return result;
+    }
+
+    function dateDiffInDays(a, b)
+    {
+        const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+        // Discard the time and time-zone information.
+        const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+        const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+
+        return Math.floor((utc2 - utc1) / _MS_PER_DAY);
+    }
+
+    function NDRProgramm()
+    {
+          var currentDate = new Date();
+          var currentDayOfWeek = currentDate.getDay();
+          var dateOfTuesday;
+
+          /*
+          0 => + 2
+          1 => + 1
+          2 => + 0
+          
+          3 => + 6
+          4 => + 5
+          5 => + 4
+          6 => + 3
+          */
+          dateOfTuesday = addDays(currentDate, (9 - currentDayOfWeek) % 7);
+
+        window.open('https://www.ndr.de/fernsehen/programm?date=' + formatDateToString(dateOfTuesday));
+    }
+
+    function OlympiaZeitplaner()
+    {
+        var currentDate = new Date();
+        var dateFirstOlympiaDay = new Date('2024-07-24');
+        var dayParameter = dateDiffInDays(dateFirstOlympiaDay, currentDate) + 1;
+
+        /*
+         <= 24.07     1
+         >= 11.08    19
+        */
+
+        if (dayParameter < 1)
+            dayParameter = 1;
+
+        if (dayParameter > 19)
+            dayParameter = 19;
+
+        window.open('https://www.eurosport.de/olympia/zeitplan-ergebnisse/nach-datum/' + dayParameter + '#view=1&team=0');
+    }
+
+    </script>
+
+    <style type="text/css">
+
+        /* ALLGEMEIN */
+        body
+        {
+            color: black;
+            background-color: white;
+            -webkit-user-select: none; /* Chrome all / Safari all */
+            -moz-user-select: none; /* Firefox all */
+            -ms-user-select: none; /* IE 10+ */
+            user-select: none; /* Likely future */
+            margin: 0px 0px 0px 0px;
+            padding: 0px 0px 0px 0px;
+            font-family: Arial;
+        }
+
+        a
+        {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        div.multilink a
+        {
+            font-variant: small-caps;
+            font-size: 19px;
+        }
+
+        a:link,
+        a:visited,
+        a:active,
+        a:hover
+        {
+            text-decoration: none;
+        }
+
+        div.group
+        {
+            border: 1px solid black;
+            margin: 5px 0px 0px 5px;
+            padding: 0px 0px 0px 3px; /* only left */
+            float: left;
+        }
+
+        div.link, div.multilink
+        {
+            border: 1px solid black;
+            box-sizing:border-box;
+            width: 125px;
+            float: left;
+            height: 70px;
+            display: table;
+            text-align: center;
+            margin: 0px 3px 3px 0px; /* only ríght & bottom */
+        }
+
+        div.umbruch
+        {
+            clear: both;
+        }
+
+        div.group_title
+        {
+            margin: 0px 0px 0px 0px;
+            padding: 1px 0px 1px 0px;
+            color: Black;
+            font-size: 16px;
+            font-variant: small-caps;
+            cursor: default;
+        }
+
+        /* INDIVIDUELLE EINSTELLUNGEN */
+
+        /* fernsehserien */
+        div.group.fernsehserien
+        {
+            background-color: #FDF08B;
+        }
+
+        div.fernsehserien div.group_title
+        {
+            color: #43341F;
+        }
+
+        div.fernsehserien div.multilink
+        {
+            background-color: #FECB00;
+        }
+
+        div.fernsehserien div.multilink a
+        {
+            color: #43341F;
+            font-weight: bold;
+        }
+
+        /* STFC */
+        div.group.stfc
+        {
+            background-color: #57007F;
+        }
+
+        div.stfc div.group_title
+        {
+            color: white;
+        }
+
+        div.stfc div.multilink
+        {
+            background-color: #9C00E5;
+        }
+
+        div.stfc div.multilink a
+        {
+            color: white;
+        }
+
+        /* Hearthstone */
+        div.group.hearthstone
+        {
+            background-color: #43341F;
+        }
+
+        div.hearthstone div.group_title
+        {
+            color: white;
+        }
+
+        div.hearthstone div.multilink
+        {
+            background-color: #634E35;
+        }
+
+        div.hearthstone div.multilink a
+        {
+            color: white;
+        }
+
+        /* Empires & Puzzles */
+        div.group.empiresandpuzzles
+        {
+            background-color: #233C5B;
+        }
+
+        div.empiresandpuzzles div.group_title
+        {
+            color: white;
+        }
+
+        div.empiresandpuzzles div.multilink
+        {
+            background-color: #337DA0;
+        }
+
+        div.empiresandpuzzles div.multilink a
+        {
+            color: white;
+        }
+
+        div.melvor_idle div.multilink
+        {
+            background-color: #232A35;
+        }
+
+        div.melvor_idle div.multilink a
+        {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="group" style="background-color: #CEF6CE">
+        <div class="group_title">
+            Portale
+        </div>
+
+        <div class="link">
+            <a href="http://www.google.de" target="_blank"
+               style="background-color: White; font-size: 32px; font-family: Times New Roman; font-weight: bold; color: Black;">
+                <span style="color: #2E69FA">G</span><span style="color: #F23A3D">o</span><span style="color: #EA980B">o</span><span style="color: #2E69FA">g</span><span style="color: #04AA1E">l</span><span style="color: #F23A3D">e</span>
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="http://www.youtube.de" target="_blank"
+               style="background-color:White;font-size:22px;font-family:Arial;font-weight:bold;color:Black;">
+                You
+                <span style="color: White; background-color: Red; padding-left: 2px; padding-right: 3px;">Tube</span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="group" style="background-color: #CEE3F6">
+        <div class="group_title">
+            Einkaufen
+        </div>
+
+        <div class="link">
+            <a href="http://www.amazon.de" target="_blank"
+               style="background-color:White;font-size:20px;font-family:Arial;font-weight:bold;color:Black;">
+                amazon.de
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="http://www.ebay.de" target="_blank"
+               style="background-color: White; font-size: 30px; font-family: Arial; font-weight: bold; color: Black;">
+                <span style="color: #E53238">e</span>
+                <span style="color: #0064D2">b</span>
+                <span style="color: #F5AF02">a</span>
+                <span style="color: #86B817">y</span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="group" style="background-color: #E3EDFA">
+        <div class="group_title">
+            Mail
+        </div>
+
+        <div class="link">
+            <a href="http://www.gmx.net/" target="_blank"
+               style="background-color:#406BB6;font-size:30px;font-family:Arial;font-weight:bold;color:White;">
+                GMX
+            </a>
+        </div>
+
+    </div>
+
+    <div class="group" style="background-color: #D8CEF6">
+        <div class="group_title">
+            KI
+        </div>
+
+        <div class="link">
+            <a href="https://chatgpt.com/" target="_blank"
+               style="background-color: white; color: Black; font-size: 22px; font-family: Arial; font-weight: bold;">
+                ChatGPT
+            </a>
+        </div>
+    </div>
+
+    <div class="group" style="background-color: #D8CEF6">
+        <div class="group_title">
+            Clipboard
+        </div>
+
+        <div class="link">
+            <a href="http://www.kolosoft.de/misc/Clipboard.html" target="_blank"
+               style="background-color:White;font-size:20px;font-family:Arial;font-weight:bold;color:Black;">
+                Texte
+            </a>
+        </div>
+
+    </div>
+
+    <div class="group umbruch" style="background-color: #D8CEF6">
+        <div class="group_title">
+            Finanzen
+        </div>
+
+        <div class="link">
+            <a href="https://www.psd-karlsruhe-neustadt.de/services_cloud/portal" target="_blank"
+               style="background-color:#1E8F5D;font-size:20px;font-family:Arial;font-weight:bold;color:White;">
+                psd Bank
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="http://www.bankofscotland.de" target="_blank"
+               style="background-color:#2C518E;font-size:20px;font-family:Arial;font-weight:bold;font-variant:small-caps;color:White;">
+                Bank of Scotland
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="https://banking.pbbdirekt.com/banking-pbb/loginFormAction.do" target="_blank"
+               style="background-color:#2D322D;font-size:24px;font-family:Arial;color:white;">
+                <span style="color:#89BE0E;font-weight:bold">pbb</span>direkt
+            </a>
+        </div>
+
+        <!--
+        <div class="link">
+            <a href="https://go.guidants.com/#Index" target="_blank"
+               style="background-color: #181E26; font-size: 24px; font-family: Arial; font-weight: bold; color: White ">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="-18 0 270 70">
+                    <path stroke="#1e6ee6" fill="#1e6ee6" d="m235.43 0-6.5 8.04h-24.62V0h31.12zM225.54 12.24l-5.61 6.93c4.14.04 7.48 3.4 7.48 7.55s-3.38 7.55-7.55 7.55-7.54-3.38-7.54-7.55h-8.01c0 8.59 6.96 15.56 15.55 15.56s15.56-6.97 15.56-15.56c0-6.59-4.1-12.21-9.88-14.48Z"></path>
+                    <path stroke="White" fill="White" d="M68.51 19.17H54.56V8.03h-8.03v11.14h-8.97v7.48h8.97v33.93h8.03V26.65h13.95v-7.48zM185.86 35.93l13.56-16.76h-9.9l-16.35 20.3V8.04h-8.03v52.54h8.03V48.9l6.86-7.58 12.14 19.26h9.14l-15.45-24.65z"></path>
+                    <path stroke="White" fill="White" d="M89.71 18.03c-11.98 0-21.7 9.81-21.7 21.91s9.71 21.91 21.7 21.91 21.7-9.81 21.7-21.91-9.71-21.91-21.7-21.91Zm0 35.82c-7.61 0-13.78-6.23-13.78-13.91s6.17-13.91 13.78-13.91 13.78 6.23 13.78 13.91-6.17 13.91-13.78 13.91ZM150.41 46.03c-2.24 4.63-6.93 7.82-12.37 7.82-7.61 0-13.78-6.23-13.78-13.91s6.17-13.91 13.78-13.91c5.44 0 10.14 3.19 12.37 7.82h8.46c-2.62-9.13-10.95-15.81-20.84-15.81-11.98 0-21.7 9.81-21.7 21.91s9.71 21.91 21.7 21.91c9.89 0 18.22-6.68 20.84-15.81h-8.46ZM25.07 31.23l7.93.05s.58-13.25-16.12-13.25C4.25 18.03 1.9 26.1 1.9 30.4c0 8.92 7.67 11.42 15.21 12.59s8.96 3.15 8.96 6.01c0 3.35-2.48 5.99-8.6 5.99-5.78 0-9.68-2.79-9.68-7.9L0 47.05s-.66 14.67 17.43 14.67c11.38 0 16.79-5.47 16.79-13.12 0-9.79-8.61-11.36-15.98-12.56-6.12-1-8.43-2.39-8.43-5.77 0-4.22 3.94-5.36 7.06-5.36s8.2 1 8.2 6.32Z"></path>
+                </svg>
+            </a>
+        </div>
+            -->
+
+        <div class="link">
+            <a href="https://konto.baaderbank.de/" target="_blank"
+               style="background-color: white; color: Black; font-size: 24px; font-family: Arial; font-variant: small-caps;">
+                <div style="display: inline-block; transform: rotate(15deg); margin-right: -5px; font-size: 40px; color: #8FA2AD;">|</div>
+                Baader<div style="display: inline-block; transform: rotate(15deg); margin-left: 5px; font-size: 40px; color: #8FA2AD;">|</div>
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="https://www.paypal.com/de/home/" target="_blank"
+               style="background-color: white; color: Black; font-size: 28px; font-family: Verdana; font-weight: bold; font-style: italic; letter-spacing: -1px;">
+                <span style="color: #002E83">Pay</span><span style="color: #006CD9">Pal</span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="group" style="background-color: #F8E0E0">
+        <div class="group_title">
+            Politik
+        </div>
+
+        <div class="link">
+            <a href="https://www.reddit.com/search/?q=Trump&type=posts&sort=new" target="_blank"
+               style="background-color:white;font-family:Arial">
+                <span style="font-size: 26px; color: orangered; font-weight: bold">reddit</span>
+                <br />
+                <span style="font-size:20px;color:black;font-weight:bold;">Trump</span>
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="https://truthsocial.com/@realDonaldTrump" target="_blank"
+               style="background-color:white;font-family:Arial">
+                <span style="font-size: 22px; line-height: 30px; color: #5448EE; font-weight: bold">TRUTH</span>
+                <br />
+                <span style="font-size:20px;color:black;font-weight:bold;">Trump</span>
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="http://trumpstruth.org" target="_blank"
+               style="background-color:white;font-family:Arial">
+                <span style="font-size: 22px; line-height: 30px; color: #5448EE; font-weight: bold">TRUTH</span>
+                <br />
+                <span style="font-size:16px;color:black;font-weight:bold;">Trump&nbsp;(Archiv)</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="group umbruch" style="background-color: #DDF6D2">
+        <div class="group_title">
+            Aktien
+        </div>
+
+        <div class="link">
+            <a href="https://de.scalable.capital/login" target="_blank"
+               style="background-color:black;font-family:Arial">
+                <span style="font-size:28px;color:cyan">scalable</span>
+                <br>
+                <span style="font-size:12px;color:white;float:right;margin-right:13px;">.CAPITAL</span>
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="https://www.justetf.com/de/search.html?search=ETFS" target="_blank"
+               style="background-color:white;font-family:Arial">
+                <span style="font-size:26px;color:black">just</span><span style="font-size:26px;color:darkorange;font-weight:bold;">ETF</span>
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="https://www.finanzfluss.de/informer/etf/suche/" target="_blank"
+               style="background-color: #4D6BDD; color: White; font-family: Arial; font-weight:bold; font-size:20px;">
+                ETF Suche
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="https://www.gettex.de/fond/IE00B4L5Y983/" target="_blank" style="background-color: #662A2D; color: white; font-size: 14px;">
+                <svg width="100" height="40" viewBox="0 5 195 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="gettex_exchange-2">
+                        <g id="Logoelement">
+                            <path id="rectangle-green" d="M193.979 0H184.076V9.90053H193.979V0Z" fill="#A9C813"></path>
+                            <path id="rectangle-red" d="M184.076 9.90735H174.173V19.8079H184.076V9.90735Z" fill="#E40613"></path>
+                        </g>
+                        <path id="gettex" d="M26.8216 28.1484C26.7669 20.41 25.9388 13.7663 20.7715 10.8105C18.9237 9.75684 16.5351 9.16158 13.4142 9.16158C12.9762 9.16158 12.593 9.19579 12.1823 9.22316C1.49884 9.81158 0.082128 18.0153 0 28.1005C0.013688 30.0232 0.095816 31.8637 0.27376 33.5947C0.30798 33.9574 0.355888 34.2995 0.403796 34.6553C1.06766 39.7937 2.70338 43.8442 6.24173 45.8489C7.80216 46.7384 9.73217 47.2311 12.1139 47.2311C12.5382 47.2311 12.9762 47.1968 13.4142 47.1421C16.3024 46.7589 19.2727 45.1442 20.621 42.5784C20.621 42.5784 20.6347 45.3495 20.532 46.5468C19.9366 53.6558 18.0476 56.3995 13.4142 56.3995C12.4629 56.3995 11.6348 56.2695 10.9025 56.0232C9.03408 55.4005 7.82954 53.9295 7.09038 51.3705C7.08354 51.3432 7.0767 51.3226 7.06985 51.2953H0.78706C1.01291 52.6363 1.39618 53.7584 1.84104 54.7368C2.88817 57.0153 4.12009 58.5821 5.67368 59.5811C7.43943 60.7168 9.51316 61.1684 11.7648 61.3053C11.847 61.3053 11.9291 61.319 12.0112 61.319C12.3055 61.3326 12.6066 61.3463 12.9078 61.3463C12.9694 61.3463 13.0241 61.3463 13.0857 61.3463C13.1336 61.3463 13.1747 61.3463 13.2158 61.3463C13.2842 61.3463 13.3526 61.3463 13.4211 61.3463C13.8112 61.3463 14.1945 61.3395 14.5709 61.319C16.8499 61.23 18.9647 60.84 20.7715 59.8C24.3236 57.7542 26.6984 53.1632 26.8216 43.29V43.0095C26.8216 42.9342 26.8216 42.8589 26.8216 42.7768C26.8216 42.6811 26.8216 42.5921 26.8216 42.4963C26.8216 42.3184 26.8216 42.1474 26.8216 41.9763V28.1484ZM20.3814 34.5937C19.656 40.6421 17.7123 43.0095 13.4142 43.0095C9.11621 43.0095 7.17936 40.6489 6.44705 34.6211C6.40598 34.2926 6.37176 33.9437 6.33754 33.5947C6.15276 31.6037 6.07063 29.2774 6.07063 26.5337C6.07063 25.6989 6.098 24.9326 6.13907 24.2074C6.58393 16.0105 9.45841 14.1221 13.4142 14.1221C17.3701 14.1221 20.2309 16.0037 20.6894 24.1526C20.7305 24.8984 20.7579 25.6784 20.7579 26.5337C20.7579 29.7495 20.6483 32.4111 20.3814 34.5937ZM119.989 9.16158C107.198 9.16158 105.945 18.1795 105.945 29.12C105.945 45.6026 112.228 47.9632 119.989 47.9632C128.27 47.9632 132.486 44.5626 133.52 35.9142H127.086C126.566 39.9032 124.424 43.0095 120.283 43.0095C115.554 43.0095 112.597 40.9432 112.296 30.5226H134.033V27.3479C133.739 15.0047 130.707 9.16158 119.989 9.16158ZM112.303 25.9384C112.597 16.3321 115.26 14.1153 119.845 14.1153C124.431 14.1153 127.463 16.2568 127.682 25.9384H112.303ZM156.331 27.7105L167.493 9.90053H160.177L152.635 23.2768L145.538 9.90053H137.777L148.419 27.7105L136.812 47.2242H143.984L152.039 31.9253L160.766 47.2242H168.753L156.331 27.7105ZM93.9134 37.3237V14.4847H101.455V9.90053H93.9134V0H87.8496V41.0184C87.8496 45.3084 90.4366 47.6689 96.2061 47.6689C98.2046 47.6689 100.196 47.4432 102.119 47.0737V42.4211C100.86 42.5716 99.9019 42.7153 99.457 42.7153C93.9134 42.7153 93.9134 39.6842 93.9134 37.3237ZM74.1547 37.3237V14.4847H81.6968V9.90053H74.1547V0H68.091V41.0184C68.091 45.3084 70.678 47.6689 76.4475 47.6689C78.4459 47.6689 80.4375 47.4432 82.3607 47.0737V42.4211C81.1014 42.5716 80.1432 42.7153 79.6984 42.7153C74.1547 42.7153 74.1547 39.6842 74.1547 37.3237ZM47.2168 9.16158C34.4253 9.16158 33.1729 18.1795 33.1729 29.12C33.1729 45.6026 39.4557 47.9632 47.2168 47.9632C55.498 47.9632 59.7139 44.5626 60.7473 35.9142H54.314C53.7938 39.9032 51.6517 43.0095 47.511 43.0095C42.7818 43.0095 39.8252 40.9432 39.5241 30.5226H61.2606V27.3479C60.9664 15.0047 57.9345 9.16158 47.2168 9.16158ZM39.5309 25.9384C39.8252 16.3321 42.4875 14.1153 47.073 14.1153C51.6585 14.1153 54.6904 16.2568 54.9094 25.9384H39.5309Z" fill="white"></path>
+                    </g>
+                </svg>
+                ETF MSCI World
+            </a>
+        </div>
+
+        <!--
+    <div class="link">
+        <a href="https://www.gettex.de/fond/LU2037748774/" target="_blank" style="background-color: #662A2D; color: white; font-size: 14px;">
+            <svg width="100" height="40" viewBox="0 5 195 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="gettex_exchange-2">
+                    <g id="Logoelement">
+                        <path id="rectangle-green" d="M193.979 0H184.076V9.90053H193.979V0Z" fill="#A9C813"></path>
+                        <path id="rectangle-red" d="M184.076 9.90735H174.173V19.8079H184.076V9.90735Z" fill="#E40613"></path>
+                    </g>
+                    <path id="gettex" d="M26.8216 28.1484C26.7669 20.41 25.9388 13.7663 20.7715 10.8105C18.9237 9.75684 16.5351 9.16158 13.4142 9.16158C12.9762 9.16158 12.593 9.19579 12.1823 9.22316C1.49884 9.81158 0.082128 18.0153 0 28.1005C0.013688 30.0232 0.095816 31.8637 0.27376 33.5947C0.30798 33.9574 0.355888 34.2995 0.403796 34.6553C1.06766 39.7937 2.70338 43.8442 6.24173 45.8489C7.80216 46.7384 9.73217 47.2311 12.1139 47.2311C12.5382 47.2311 12.9762 47.1968 13.4142 47.1421C16.3024 46.7589 19.2727 45.1442 20.621 42.5784C20.621 42.5784 20.6347 45.3495 20.532 46.5468C19.9366 53.6558 18.0476 56.3995 13.4142 56.3995C12.4629 56.3995 11.6348 56.2695 10.9025 56.0232C9.03408 55.4005 7.82954 53.9295 7.09038 51.3705C7.08354 51.3432 7.0767 51.3226 7.06985 51.2953H0.78706C1.01291 52.6363 1.39618 53.7584 1.84104 54.7368C2.88817 57.0153 4.12009 58.5821 5.67368 59.5811C7.43943 60.7168 9.51316 61.1684 11.7648 61.3053C11.847 61.3053 11.9291 61.319 12.0112 61.319C12.3055 61.3326 12.6066 61.3463 12.9078 61.3463C12.9694 61.3463 13.0241 61.3463 13.0857 61.3463C13.1336 61.3463 13.1747 61.3463 13.2158 61.3463C13.2842 61.3463 13.3526 61.3463 13.4211 61.3463C13.8112 61.3463 14.1945 61.3395 14.5709 61.319C16.8499 61.23 18.9647 60.84 20.7715 59.8C24.3236 57.7542 26.6984 53.1632 26.8216 43.29V43.0095C26.8216 42.9342 26.8216 42.8589 26.8216 42.7768C26.8216 42.6811 26.8216 42.5921 26.8216 42.4963C26.8216 42.3184 26.8216 42.1474 26.8216 41.9763V28.1484ZM20.3814 34.5937C19.656 40.6421 17.7123 43.0095 13.4142 43.0095C9.11621 43.0095 7.17936 40.6489 6.44705 34.6211C6.40598 34.2926 6.37176 33.9437 6.33754 33.5947C6.15276 31.6037 6.07063 29.2774 6.07063 26.5337C6.07063 25.6989 6.098 24.9326 6.13907 24.2074C6.58393 16.0105 9.45841 14.1221 13.4142 14.1221C17.3701 14.1221 20.2309 16.0037 20.6894 24.1526C20.7305 24.8984 20.7579 25.6784 20.7579 26.5337C20.7579 29.7495 20.6483 32.4111 20.3814 34.5937ZM119.989 9.16158C107.198 9.16158 105.945 18.1795 105.945 29.12C105.945 45.6026 112.228 47.9632 119.989 47.9632C128.27 47.9632 132.486 44.5626 133.52 35.9142H127.086C126.566 39.9032 124.424 43.0095 120.283 43.0095C115.554 43.0095 112.597 40.9432 112.296 30.5226H134.033V27.3479C133.739 15.0047 130.707 9.16158 119.989 9.16158ZM112.303 25.9384C112.597 16.3321 115.26 14.1153 119.845 14.1153C124.431 14.1153 127.463 16.2568 127.682 25.9384H112.303ZM156.331 27.7105L167.493 9.90053H160.177L152.635 23.2768L145.538 9.90053H137.777L148.419 27.7105L136.812 47.2242H143.984L152.039 31.9253L160.766 47.2242H168.753L156.331 27.7105ZM93.9134 37.3237V14.4847H101.455V9.90053H93.9134V0H87.8496V41.0184C87.8496 45.3084 90.4366 47.6689 96.2061 47.6689C98.2046 47.6689 100.196 47.4432 102.119 47.0737V42.4211C100.86 42.5716 99.9019 42.7153 99.457 42.7153C93.9134 42.7153 93.9134 39.6842 93.9134 37.3237ZM74.1547 37.3237V14.4847H81.6968V9.90053H74.1547V0H68.091V41.0184C68.091 45.3084 70.678 47.6689 76.4475 47.6689C78.4459 47.6689 80.4375 47.4432 82.3607 47.0737V42.4211C81.1014 42.5716 80.1432 42.7153 79.6984 42.7153C74.1547 42.7153 74.1547 39.6842 74.1547 37.3237ZM47.2168 9.16158C34.4253 9.16158 33.1729 18.1795 33.1729 29.12C33.1729 45.6026 39.4557 47.9632 47.2168 47.9632C55.498 47.9632 59.7139 44.5626 60.7473 35.9142H54.314C53.7938 39.9032 51.6517 43.0095 47.511 43.0095C42.7818 43.0095 39.8252 40.9432 39.5241 30.5226H61.2606V27.3479C60.9664 15.0047 57.9345 9.16158 47.2168 9.16158ZM39.5309 25.9384C39.8252 16.3321 42.4875 14.1153 47.073 14.1153C51.6585 14.1153 54.6904 16.2568 54.9094 25.9384H39.5309Z" fill="white"></path>
+                </g>
+            </svg>
+            ETF Anleihen
+        </a>
+    </div>
+        -->
+
+        <div class="link">
+            <a href="https://www.gettex.de/fond/LU0290358497/" target="_blank" style="background-color: #662A2D; color: white; font-size: 14px;">
+                <svg width="100" height="40" viewBox="0 5 195 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="gettex_exchange-2">
+                        <g id="Logoelement">
+                            <path id="rectangle-green" d="M193.979 0H184.076V9.90053H193.979V0Z" fill="#A9C813"></path>
+                            <path id="rectangle-red" d="M184.076 9.90735H174.173V19.8079H184.076V9.90735Z" fill="#E40613"></path>
+                        </g>
+                        <path id="gettex" d="M26.8216 28.1484C26.7669 20.41 25.9388 13.7663 20.7715 10.8105C18.9237 9.75684 16.5351 9.16158 13.4142 9.16158C12.9762 9.16158 12.593 9.19579 12.1823 9.22316C1.49884 9.81158 0.082128 18.0153 0 28.1005C0.013688 30.0232 0.095816 31.8637 0.27376 33.5947C0.30798 33.9574 0.355888 34.2995 0.403796 34.6553C1.06766 39.7937 2.70338 43.8442 6.24173 45.8489C7.80216 46.7384 9.73217 47.2311 12.1139 47.2311C12.5382 47.2311 12.9762 47.1968 13.4142 47.1421C16.3024 46.7589 19.2727 45.1442 20.621 42.5784C20.621 42.5784 20.6347 45.3495 20.532 46.5468C19.9366 53.6558 18.0476 56.3995 13.4142 56.3995C12.4629 56.3995 11.6348 56.2695 10.9025 56.0232C9.03408 55.4005 7.82954 53.9295 7.09038 51.3705C7.08354 51.3432 7.0767 51.3226 7.06985 51.2953H0.78706C1.01291 52.6363 1.39618 53.7584 1.84104 54.7368C2.88817 57.0153 4.12009 58.5821 5.67368 59.5811C7.43943 60.7168 9.51316 61.1684 11.7648 61.3053C11.847 61.3053 11.9291 61.319 12.0112 61.319C12.3055 61.3326 12.6066 61.3463 12.9078 61.3463C12.9694 61.3463 13.0241 61.3463 13.0857 61.3463C13.1336 61.3463 13.1747 61.3463 13.2158 61.3463C13.2842 61.3463 13.3526 61.3463 13.4211 61.3463C13.8112 61.3463 14.1945 61.3395 14.5709 61.319C16.8499 61.23 18.9647 60.84 20.7715 59.8C24.3236 57.7542 26.6984 53.1632 26.8216 43.29V43.0095C26.8216 42.9342 26.8216 42.8589 26.8216 42.7768C26.8216 42.6811 26.8216 42.5921 26.8216 42.4963C26.8216 42.3184 26.8216 42.1474 26.8216 41.9763V28.1484ZM20.3814 34.5937C19.656 40.6421 17.7123 43.0095 13.4142 43.0095C9.11621 43.0095 7.17936 40.6489 6.44705 34.6211C6.40598 34.2926 6.37176 33.9437 6.33754 33.5947C6.15276 31.6037 6.07063 29.2774 6.07063 26.5337C6.07063 25.6989 6.098 24.9326 6.13907 24.2074C6.58393 16.0105 9.45841 14.1221 13.4142 14.1221C17.3701 14.1221 20.2309 16.0037 20.6894 24.1526C20.7305 24.8984 20.7579 25.6784 20.7579 26.5337C20.7579 29.7495 20.6483 32.4111 20.3814 34.5937ZM119.989 9.16158C107.198 9.16158 105.945 18.1795 105.945 29.12C105.945 45.6026 112.228 47.9632 119.989 47.9632C128.27 47.9632 132.486 44.5626 133.52 35.9142H127.086C126.566 39.9032 124.424 43.0095 120.283 43.0095C115.554 43.0095 112.597 40.9432 112.296 30.5226H134.033V27.3479C133.739 15.0047 130.707 9.16158 119.989 9.16158ZM112.303 25.9384C112.597 16.3321 115.26 14.1153 119.845 14.1153C124.431 14.1153 127.463 16.2568 127.682 25.9384H112.303ZM156.331 27.7105L167.493 9.90053H160.177L152.635 23.2768L145.538 9.90053H137.777L148.419 27.7105L136.812 47.2242H143.984L152.039 31.9253L160.766 47.2242H168.753L156.331 27.7105ZM93.9134 37.3237V14.4847H101.455V9.90053H93.9134V0H87.8496V41.0184C87.8496 45.3084 90.4366 47.6689 96.2061 47.6689C98.2046 47.6689 100.196 47.4432 102.119 47.0737V42.4211C100.86 42.5716 99.9019 42.7153 99.457 42.7153C93.9134 42.7153 93.9134 39.6842 93.9134 37.3237ZM74.1547 37.3237V14.4847H81.6968V9.90053H74.1547V0H68.091V41.0184C68.091 45.3084 70.678 47.6689 76.4475 47.6689C78.4459 47.6689 80.4375 47.4432 82.3607 47.0737V42.4211C81.1014 42.5716 80.1432 42.7153 79.6984 42.7153C74.1547 42.7153 74.1547 39.6842 74.1547 37.3237ZM47.2168 9.16158C34.4253 9.16158 33.1729 18.1795 33.1729 29.12C33.1729 45.6026 39.4557 47.9632 47.2168 47.9632C55.498 47.9632 59.7139 44.5626 60.7473 35.9142H54.314C53.7938 39.9032 51.6517 43.0095 47.511 43.0095C42.7818 43.0095 39.8252 40.9432 39.5241 30.5226H61.2606V27.3479C60.9664 15.0047 57.9345 9.16158 47.2168 9.16158ZM39.5309 25.9384C39.8252 16.3321 42.4875 14.1153 47.073 14.1153C51.6585 14.1153 54.6904 16.2568 54.9094 25.9384H39.5309Z" fill="white"></path>
+                    </g>
+                </svg>
+                ETF Geldmarkt
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="https://www.tradingview.com/symbols/USDEUR/" target="_blank"
+               style="background-color:White;font-size:20px;font-family:Arial;font-weight:bold;color:Black;">
+                US$ / EUR
+            </a>
+        </div>
+
+    </div>
+
+    <div class="group umbruch" style="background-color: #F8E0E0">
+        <div class="group_title">
+            Tippen / Wetten
+        </div>
+
+        <div class="link">
+            <a href="http://www.kicktipp.de/bundesliga-profis/tippuebersicht" target="_blank"
+               style="background-color: red; font-size: 28px; font-family: Arial; font-weight: bold; color: White;">
+                <table style="border-collapse: collapse; margin: 0px; width: 100%">
+                    <tr style="background-color: #C11A00; height: 42px">
+                        <td style="font-size: 25px">kicktipp</td>
+                    </tr>
+                    <tr style="background-color: gray; line-height: 24px">
+                        <td style="font-size: 13px">bundesliga-profis</td>
+                    </tr>
+                </table>
+
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="http://www.kolosoft.de/kicktipp/bundesliga-profis/2025/index.html?nickname=KoloSoft" target="_blank"
+               style="background-color: red; font-size: 28px; font-family: Arial; font-weight: bold; color: White;">
+                <table style="border-collapse: collapse; margin: 0px; width: 100%">
+                    <tr style="background-color: #C11A00; height: 42px">
+                        <td style="font-size: 22px">KoloSoft</td>
+                    </tr>
+                    <tr style="background-color: gray; line-height: 24px">
+                        <td style="font-size: 13px">bundesliga-profis</td>
+                    </tr>
+                </table>
+
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="https://www.tipico.de" target="_blank"
+               style="background-color:#C8102E;font-size:30px;font-family:Arial;font-style:italic;font-weight:bold;color:White;">
+                tipico
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="https://www.bet365.com/" target="_blank"
+               style="background-color:#14805E;font-size:30px;font-family:Arial;font-weight:bold;color:White;">
+                bet<span style="color:#FFDF1B">365</span>
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="http://www.bundesligatrend.de/category/bundesliga-spieltage" target="_blank"
+               style="background-color:#66764A;color:White;font-size:19px;font-weight:bold;font-family:Arial;">
+                Bundesliga- trend.de
+            </a>
+        </div>
+
+    </div>
+
+    <div class="group" style="background-color: #D8CEF6">
+        <div class="group_title">
+            Lachen
+        </div>
+
+        <div class="link">
+            <a href="https://www.der-postillon.com/" target="_blank"
+               style="background-color:White;font-size:20px;font-family:Arial;font-weight:bold;color:Black;">
+                Der<br />Postillon
+            </a>
+        </div>
+
+    </div>
+
+    <!--
+    <div class="group" style="background-color: #D8CEF6">
+        <div class="group_title">
+            Aktuelles
+        </div>
+
+        <div class="link">
+            <a href="#" onclick="OlympiaZeitplaner()"
+               style="background-color:White;font-size:20px;font-family:Arial;font-weight:bold;color:Black;" >
+                <span style="color: #0081C8">Ol</span><span>ym</span><span style="color: #EE334E">pia</span><br /><span style="color: #FCB131">Zeit</span><span style="color: #00A651">planer</span>
+            </a>
+        </div>
+
+    </div>
+     -->
+
+    <div class="group umbruch" style="background-color: #E3EDFA">
+        <div class="group_title">
+            Sport
+        </div>
+
+        <div class="link">
+            <a href="https://www.kicker.de/bundesliga/startseite" target="_blank"
+               style="background-color:red;font-size:30px;font-family:Arial;font-weight:bold;color:White;">
+                kicker
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="http://www.fussballgucken.info/fussball-heute" target="_blank"
+               style="background-color:#62CA5B;color:White;font-size:19px;font-family:Arial;letter-spacing:1px">
+                fussball <span style="color:Black">gucken.info</span>
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="https://www.dazn.com/de-DE/schedule" target="_blank"
+               style="background-color: #000000; color: White; font-size: 24px; font-weight: bold; font-family: Arial;">
+                DA<br />ZN
+            </a>
+        </div>
+
+        <!--
+        <div class="link">
+            <a href="https://www.pdc.tv/tournaments/calendar" target="_blank"
+               style="background-color: White; color: Red; font-size: 24px; font-weight: bold; font-family: Arial;">
+                PDC<br />Kalender
+            </a>
+        </div>
+        -->
+        <div class="link">
+            <a href="https://www.darts1.de/" target="_blank"
+               style="background-color: White; color: Red; font-size: 24px; font-weight: bold; font-family: Arial;">
+                Darts<br />News
+            </a>
+        </div>
+
+        <!--
+        <div class="link">
+            <a href="http://www.c2forum.com/" target="_blank"
+               style="background-color:#0A8FCC;font-size:22px;font-family:Arial;color:White;">
+                Concept2 Forum
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="http://www.concept2.com/indoor-rowers/training/calculators/pace-calculator" target="_blank"
+               style="background-color:Black;font-size:22px;font-family:Arial;color:White;">
+                Pace Calculator
+            </a>
+        </div>
+        -->
+
+        <div class="link">
+            <a href="http://de.chessbase.com/" target="_blank"
+               style="background-color:#A21F29;font-size:20px;font-family:Arial;color:White;font-weight:bold">
+                Schach Nachrichten
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="https://thepeteplan.wordpress.com/beginner-training/" target="_blank"
+               style="background-color:#0A8FCC;font-size:22px;font-family:Arial;color:White;">
+                The Pete Plan
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="https://www.metronomeonline.com/" target="_blank"
+               style="background-color: white; font-size: 22px; font-family: Arial; color: #0A8FCC;">
+                Metronom
+            </a>
+        </div>
+
+
+
+    </div>
+
+    <div class="group umbruch" style="background-color: #E6E6E6;">
+        <div class="group_title">
+            Fernsehennews
+        </div>
+
+        <div class="link forum_digitalfernsehen">
+            <a href="http://www.digitalfernsehen.de/7-Tage-News.167.0.html" target="_blank"
+               style="background-color: white; color: black; font-weight: bold">
+                DIGITAL<br />
+                fernsehen<br />
+                NEWS
+            </a>
+        </div>
+
+    </div>
+
+    <div class="group" style="background-color: #CEF6CE">
+        <div class="group_title">
+            Live-Fernsehen
+        </div>
+
+        <!--
+        <div class="link">
+            <a href="https://de.euronews.com/live" target="_blank"
+               style="background-color: #00202F; font-size: 24px; font-family: Tahoma; font-weight: normal; color: White; line-height: 21px">
+                euro<span style="font-weight: bold">news.</span>
+            </a>
+        </div>
+        -->
+
+        <div class="link">
+            <a href="https://www.n-tv.de/mediathek/livestream" target="_blank"
+               style="background-color: #DC0028; font-size: 36px; font-family: Tahoma; font-weight: bold; color: White">
+                n<span style="letter-spacing: -1px">tv</span>
+            </a>
+        </div>
+
+        <!--
+        <div class="link">
+            <a href="https://www.welt.de/tv-programm-live-stream/" target="_blank"
+               style="background-color: #003A5A; font-size: 32px; font-family: Tahoma; font-weight: bold; color: White">
+                W<span style="font-size:41px">e</span>LT
+            </a>
+        </div>
+        -->
+
+        <div class="link">
+            <a href="https://live.daserste.de/" target="_blank"
+               style="background-color: #1E5B9A; font-size: 24px; font-family: Tahoma; font-weight: normal; color: White">
+                Das Erste
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="https://www.zdf.de/live-tv" target="_blank"
+               style="background-color: #34393F; font-size: 32px; font-family: Tahoma; font-weight: bold; color: #FA7D19">
+                <span style="height:45px; width:45px; border-radius: 50%;display: inline-block; background-color:#FA7D19;position:relative;left:-20px"><span style="color: White; position:relative;left:20px">Z</span><span style="position:relative;left:20px">DF</span></span>
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="https://tv.sport1.de/live/sport1" target="_blank"
+               style="background-color: black; font-size: 30px; font-family: Arial; font-weight: bold; color: White; font-style: italic;">
+                sport<span style="color:#FFDF1B">1</span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="group" style="background-color: #E3EDFA">
+        <div class="group_title">
+            Wörterbücher
+        </div>
+
+        <div class="link">
+            <a href="https://dict.leo.org/" target="_blank"
+               style="background-color:White;font-size:20px;font-family:Arial;font-weight:bold;color:#F4CC00;">
+                dict.leo.org
+            </a>
+        </div>
+
+        <div class="link">
+            <a href="http://www.linguee.de/" target="_blank"
+               style="background-color:White;font-size:30px;font-family:Times New Roman;color:#65809B;">
+                L<span style="color:#92A8BB">inguee</span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="group fernsehserien umbruch">
+        <div class="group_title">
+            Fernsehserien/-programm
+        </div>
+
+        <div class="multilink">
+            <a href="http://www.fernsehserien.de/" target="_blank">
+                fernseh-<br />serien.de
+            </a>
+        </div>
+
+
+        <div class="multilink">
+            <a href="http://programm.ard.de/programm/sender?sender=28106" target="_blank">
+                Das Erste
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="https://www.zdf.de/live-tv" target="_blank">
+                ZDF
+            </a>
+        </div>
+
+        <!--
+        <div class="multilink">
+            <a href="https://programm.ard.de/programm/sender?sender=28007" target="_blank">
+                3sat
+            </a>
+        </div>
+
+
+        <div class="multilink">
+            <a href="https://programm.ard.de/TV/Programm/Sender?sender=28724" target="_blank">
+                arte
+            </a>
+        </div>
+        -->
+
+        <div class="multilink">
+            <a href="#" onclick="NDRProgramm()">
+                NDR (Di.)
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="https://www.tvdirekt.de/fernsehsender/2/info.html?time=-1" target="_blank">
+                ARD<br />alpha
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="https://www.tvdirekt.de/fernsehsender/130/info.html?time=-1" target="_blank">
+                ZDF info
+            </a>
+        </div>
+
+        <!--
+           <div class="multilink">
+               <a href="https://www.tvdirekt.de/fernsehsender/12148/info.html?time=-1" target="_blank">
+                   sky Docu
+               </a>
+           </div>
+        -->
+    </div>
+
+
+    <div class="group melvor_idle umbruch">
+        <div class="group_title">
+            Mevlor Idle
+        </div>
+        <div class="multilink">
+            <a href="https://melvoridle.com/index_game.php" target="_blank">
+                Spiel<br>
+                starten
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="https://wiki.melvoridle.com/w/Main_Page" target="_blank">
+                WIKI
+            </a>
+        </div>
+
+        <!--
+            <div class="multilink">
+                <a href="https://www.reddit.com/r/MelvorIdle/" target="_blank">
+                    reddit
+                </a>
+            </div>
+
+
+        <div class="multilink">
+            <a href="https://discord.com/channels/625838709203271680/625855583550963713" target="_blank">
+                Discord
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="https://mod.io/g/melvoridle" target="_blank">
+                Mods
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="http://www.kolosoft.de/melvoridle/MelvorMap.png" target="_blank">
+                Melvor<br />Map
+            </a>
+        </div>
+            -->
+
+        <div class="multilink">
+            <a href="https://wiki.melvoridle.com/w/Township/Tasks#Casual" target="_blank">
+                Casual<br />Tasks
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="https://wiki.melvoridle.com/w/Cartography#All_Points_of_Interest" target="_blank">
+                Karto-<br />graphie
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="https://wiki.melvoridle.com/w/Archaeology" target="_blank">
+                Archäologie
+            </a>
+        </div>
+
+        <!--
+        <div class="multilink">
+            <a href="https://wiki.melvoridle.com/w/Fishing" target="_blank">
+                Fischen
+            </a>
+        </div>
+        -->
+
+        <div class="multilink">
+            <a href="https://wiki.melvoridle.com/w/Combat_Guide" target="_blank">
+                Combat<br>
+                Guide
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="https://wiki.melvoridle.com/w/Barrier/Guide" target="_blank">
+                Barrier<br>
+                Guide
+            </a>
+        </div>
+
+
+    </div>
+
+    <!--
+    <div class="group stfc umbruch">
+        <div class="group_title">
+            STFC
+        </div>
+
+        <div class="multilink">
+            <a href="https://discord.com/channels/1105094185960345700/1105095510307639330" target="_blank">
+                Discord<br />
+                Allianz
+            </a>
+        </div>
+
+    </div>
+    -->
+    <!--
+    <div class="group hearthstone umbruch">
+        <div class="group_title">
+            Hearthstone
+        </div>
+
+        <div class="multilink">
+            <a href="https://eu.forums.blizzard.com/de/hearthstone/" target="_blank">
+                EU<br />Forum
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="https://us.forums.blizzard.com/en/hearthstone/" target="_blank">
+                US<br />Forum
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="http://www.hearthpwn.com/" target="_blank">
+                HearthPwn
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="https://outof.cards/hearthstone/" target="_blank">
+                Out of Cards
+            </a>
+        </div>
+
+
+        <div class="multilink">
+            <a href="http://hearthstone.gamepedia.com/Hearthstone_Wiki" target="_blank">
+                Wiki
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="https://www.twitch.tv/directory/game/Hearthstone" target="_blank">
+                twitch<br />Live Stream
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="https://www.reddit.com/r/hearthstone/" target="_blank">
+                reddit
+            </a>
+        </div>
+
+    </div>
+    -->
+    <!--
+    <div class="group empiresandpuzzles umbruch">
+        <div class="group_title">
+            Empires & Puzzles
+        </div>
+
+        <div class="multilink">
+            <a href="https://www.empiresandpuzzles.com/de" target="_blank">
+                Shop
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="https://allianz-da.jimdofree.com/guide/geb%C3%A4ude-basis/" target="_blank">
+                Gebäude-<br />übersicht
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="https://docs.google.com/spreadsheets/d/1UnPFObu5XJkLJVjxcgoia-0sHlO0qHw9UkrPh5i_ZXU/edit#gid=0" target="_blank">
+                Loots & Stats
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="https://allianz-da.jimdofree.com/guide/helden/helden-aufsteigen/" target="_blank">
+                Helden-<br />aufstieg
+            </a>
+        </div>
+
+        <div class="multilink">
+            <a href="https://empiresandpuzzles.fandom.com/wiki/Home" target="_blank">
+                Wiki
+            </a>
+        </div>
+
+    </div>
+     -->
+    <!--
+    <div class="group umbruch" style="background-color:#D8CEF6; color:white;">
+        <div class="group_title">
+            Diablo 3
+        </div>
+
+        <div class="link hearthstone_forum">
+            <a href="https://eu.diablo3.blizzard.com/de-de/profile/Plueschloewe-2974/" target="_blank">
+                Arsenal<br/>Undeathtaker
+            </a>
+        </div>
+
+        <div class="link hearthstone_forum">
+            <a href="https://www.icy-veins.com/d3/barbarian-leveling-build-guide" target="_blank">
+                Leveling Guide
+            </a>
+        </div>
+
+        <div class="link hearthstone_forum">
+            <a href="https://www.icy-veins.com/d3/follower-skills-and-gearing-guide" target="_blank">
+                Follower Guide
+            </a>
+        </div>
+
+        <div class="link hearthstone_forum">
+            <a href="https://www.icy-veins.com/d3/rend-wastes-barbarian-bis-gear-gems-paragon-points" target="_blank">
+                Icy Veins<br/>WW Rend
+            </a>
+        </div>
+
+        <div class="link hearthstone_forum">
+            <a href="https://maxroll.gg/guides/waste-set-ww-rend-barbarian-guide/2" target="_blank">
+                WW Rend<br/>NonS
+            </a>
+        </div>
+
+        <div class="link hearthstone_forum">
+            <a href="https://www.d3planner.com/game/68722/kadala" target="_blank">
+                Kadala<br/>Planer
+            </a>
+        </div>
+
+        <div class="link hearthstone_forum">
+            <a href="https://d3resource.com/difficulties/" target="_blank">
+                Difficulty<br/>Overview
+            </a>
+        </div>
+
+    </div>
+    -->
+
+</body>
+</html>
