@@ -7,73 +7,73 @@
 
     <script type="text/javascript">
 
-    function formatDateToString(date)
-    {
-       var dd = (date.getDate() < 10 ? '0' : '') + date.getDate();
-       var MM = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
-       var yyyy = date.getFullYear();
+        function formatDateToString(date)
+        {
+            var dd = (date.getDate() < 10 ? '0' : '') + date.getDate();
+            var MM = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
+            var yyyy = date.getFullYear();
 
-       // create the format you want
-       return (yyyy + "-" + MM + "-" + dd);
-    }
+            // create the format you want
+            return (yyyy + "-" + MM + "-" + dd);
+        }
 
-    function addDays(date, days)
-    {
-          var result = new Date(date);
-          result.setDate(result.getDate() + days);
-          return result;
-    }
+        function addDays(date, days)
+        {
+            var result = new Date(date);
+            result.setDate(result.getDate() + days);
+            return result;
+        }
 
-    function dateDiffInDays(a, b)
-    {
-        const _MS_PER_DAY = 1000 * 60 * 60 * 24;
-        // Discard the time and time-zone information.
-        const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
-        const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+        function dateDiffInDays(a, b)
+        {
+            const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+            // Discard the time and time-zone information.
+            const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+            const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
 
-        return Math.floor((utc2 - utc1) / _MS_PER_DAY);
-    }
+            return Math.floor((utc2 - utc1) / _MS_PER_DAY);
+        }
 
-    function NDRProgramm()
-    {
-          var currentDate = new Date();
-          var currentDayOfWeek = currentDate.getDay();
-          var dateOfTuesday;
+        function NDRProgramm()
+        {
+            var currentDate = new Date();
+            var currentDayOfWeek = currentDate.getDay();
+            var dateOfTuesday;
 
-          /*
-          0 => + 2
-          1 => + 1
-          2 => + 0
-          
-          3 => + 6
-          4 => + 5
-          5 => + 4
-          6 => + 3
-          */
-          dateOfTuesday = addDays(currentDate, (9 - currentDayOfWeek) % 7);
+            /*
+            0 => + 2
+            1 => + 1
+            2 => + 0
 
-        window.open('https://www.ndr.de/fernsehen/programm?date=' + formatDateToString(dateOfTuesday));
-    }
+            3 => + 6
+            4 => + 5
+            5 => + 4
+            6 => + 3
+            */
+            dateOfTuesday = addDays(currentDate, (9 - currentDayOfWeek) % 7);
 
-    function OlympiaZeitplaner()
-    {
-        var currentDate = new Date();
-        var dateFirstOlympiaDay = new Date('2024-07-24');
-        var dayParameter = dateDiffInDays(dateFirstOlympiaDay, currentDate) + 1;
+            window.open('https://www.ndr.de/fernsehen/programm?date=' + formatDateToString(dateOfTuesday));
+        }
 
-        /*
-         <= 24.07     1
-         >= 11.08    19
-        */
+        function OlympiaZeitplaner()
+        {
+            var currentDate = new Date();
+            var dateFirstOlympiaDay = new Date('2024-07-24');
+            var dayParameter = dateDiffInDays(dateFirstOlympiaDay, currentDate) + 1;
 
-        if (dayParameter < 1)
-            dayParameter = 1;
+            /*
+             <= 24.07     1
+             >= 11.08    19
+            */
 
-        if (dayParameter > 19)
-            dayParameter = 19;
+            if (dayParameter < 1)
+                dayParameter = 1;
 
-        window.open('https://www.eurosport.de/olympia/zeitplan-ergebnisse/nach-datum/' + dayParameter + '#view=1&team=0');
-    }
+            if (dayParameter > 19)
+                dayParameter = 19;
+
+            window.open('https://www.eurosport.de/olympia/zeitplan-ergebnisse/nach-datum/' + dayParameter + '#view=1&team=0');
+        }
 
     </script>
 
@@ -125,13 +125,14 @@
         div.link, div.multilink
         {
             border: 1px solid black;
-            box-sizing:border-box;
+            box-sizing: border-box;
             width: 125px;
             float: left;
             height: 70px;
             display: table;
             text-align: center;
             margin: 0px 3px 3px 0px; /* only ríght & bottom */
+            background-color: white;
         }
 
         div.umbruch
@@ -167,11 +168,11 @@
             background-color: #FECB00;
         }
 
-        div.fernsehserien div.multilink a
-        {
-            color: #43341F;
-            font-weight: bold;
-        }
+            div.fernsehserien div.multilink a
+            {
+                color: #43341F;
+                font-weight: bold;
+            }
 
         /* STFC */
         div.group.stfc
@@ -189,10 +190,10 @@
             background-color: #9C00E5;
         }
 
-        div.stfc div.multilink a
-        {
-            color: white;
-        }
+            div.stfc div.multilink a
+            {
+                color: white;
+            }
 
         /* Hearthstone */
         div.group.hearthstone
@@ -210,10 +211,10 @@
             background-color: #634E35;
         }
 
-        div.hearthstone div.multilink a
-        {
-            color: white;
-        }
+            div.hearthstone div.multilink a
+            {
+                color: white;
+            }
 
         /* Empires & Puzzles */
         div.group.empiresandpuzzles
@@ -231,20 +232,20 @@
             background-color: #337DA0;
         }
 
-        div.empiresandpuzzles div.multilink a
-        {
-            color: white;
-        }
+            div.empiresandpuzzles div.multilink a
+            {
+                color: white;
+            }
 
         div.melvor_idle div.multilink
         {
             background-color: #232A35;
         }
 
-        div.melvor_idle div.multilink a
-        {
-            color: white;
-        }
+            div.melvor_idle div.multilink a
+            {
+                color: white;
+            }
     </style>
 </head>
 <body>
@@ -374,7 +375,9 @@
 
         <div class="link">
             <a href="https://portal.fnz.de/finvesto" target="_blank">
-                <img src="data:image/png;base64,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">
+                <div style="font-size:32px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight:bold;">
+                    <span style="color: #95C11F">fin</span><span style="color: #394348">vesto</span>
+                </div>
             </a>
         </div>
 
