@@ -13,16 +13,16 @@ ass=\"pad_l\">3.</td><td class=\"l\">FC_Lukasball</td><td>2020/2021</td><td\
 \"><td class=\"pad_l\"></td><td class=\"l\">Isabell</td><td>2018/2019</td><\
 td class=\"pad_r\">1425</td></tr><tr class=\"even\" nick=\"Sandhofen\" styl\
 e=\"\"><td class=\"pad_l\"></td><td class=\"l inaktiv\">Sandhofen</td><td>2\
-018/2019</td><td class=\"pad_r\">1425</td></tr><tr class=\"odd\" nick=\"Kol\
-oSoft\" style=\"\"><td class=\"pad_l\">6.</td><td class=\"l\">KoloSoft</td>\
-<td>2018/2019</td><td class=\"pad_r\">1411</td></tr><tr class=\"even\" nick\
-=\"Roterstern\" style=\"color:red\"><td class=\"pad_l\">7.</td><td class=\"\
-l\">Roterstern</td><td>2025/2026</td><td class=\"pad_r\">1410</td></tr><tr \
-class=\"odd\" nick=\"FC_Lukasball\" style=\"\"><td class=\"pad_l\">8.</td><\
-td class=\"l\">FC_Lukasball</td><td>2013/2014</td><td class=\"pad_r\">1403<\
-/td></tr><tr class=\"even\" nick=\"Guenter\" style=\"color:red\"><td class=\
-\"pad_l\">9.</td><td class=\"l\">Guenter</td><td>2025/2026</td><td class=\"\
-pad_r\">1400</td></tr><tr class=\"odd\" nick=\"Isabell\" style=\"\"><td cla\
+018/2019</td><td class=\"pad_r\">1425</td></tr><tr class=\"odd\" nick=\"Rot\
+erstern\" style=\"color:red\"><td class=\"pad_l\">6.</td><td class=\"l\">Ro\
+terstern</td><td>2025/2026</td><td class=\"pad_r\">1420</td></tr><tr class=\
+\"even\" nick=\"KoloSoft\" style=\"\"><td class=\"pad_l\">7.</td><td class=\
+\"l\">KoloSoft</td><td>2018/2019</td><td class=\"pad_r\">1411</td></tr><tr \
+class=\"odd\" nick=\"Guenter\" style=\"color:red\"><td class=\"pad_l\">8.</\
+td><td class=\"l\">Guenter</td><td>2025/2026</td><td class=\"pad_r\">1410</\
+td></tr><tr class=\"even\" nick=\"FC_Lukasball\" style=\"\"><td class=\"pad\
+_l\">9.</td><td class=\"l\">FC_Lukasball</td><td>2013/2014</td><td class=\"\
+pad_r\">1403</td></tr><tr class=\"odd\" nick=\"Isabell\" style=\"\"><td cla\
 ss=\"pad_l\">10.</td><td class=\"l\">Isabell</td><td>2013/2014</td><td clas\
 s=\"pad_r\">1398</td></tr></table><table class=\"kicktipp c\"><tr class=\"s\
 ingle_head\"><th colspan=\"4\">Höchster Vorsprung</th></tr><tr class=\"sing\
