@@ -7,19 +7,19 @@ hste Punktzahl</th></tr><tr class=\"single_head\"><th width=\"40px\" class=\
 td class=\"l\">Roterstern</td><td>2023/2024</td><td class=\"pad_r\">1460</t\
 d></tr><tr class=\"odd\" nick=\"Roterstern\" style=\"\"><td class=\"pad_l\"\
 >2.</td><td class=\"l\">Roterstern</td><td>2013/2014</td><td class=\"pad_r\
-\">1443</td></tr><tr class=\"even\" nick=\"FC_Lukasball\" style=\"\"><td cl\
-ass=\"pad_l\">3.</td><td class=\"l\">FC_Lukasball</td><td>2020/2021</td><td\
- class=\"pad_r\">1425</td></tr><tr class=\"odd\" nick=\"Isabell\" style=\"\
-\"><td class=\"pad_l\"></td><td class=\"l\">Isabell</td><td>2018/2019</td><\
-td class=\"pad_r\">1425</td></tr><tr class=\"even\" nick=\"Sandhofen\" styl\
-e=\"\"><td class=\"pad_l\"></td><td class=\"l inaktiv\">Sandhofen</td><td>2\
-018/2019</td><td class=\"pad_r\">1425</td></tr><tr class=\"odd\" nick=\"Rot\
-erstern\" style=\"color:red\"><td class=\"pad_l\">6.</td><td class=\"l\">Ro\
-terstern</td><td>2025/2026</td><td class=\"pad_r\">1420</td></tr><tr class=\
-\"even\" nick=\"KoloSoft\" style=\"\"><td class=\"pad_l\">7.</td><td class=\
-\"l\">KoloSoft</td><td>2018/2019</td><td class=\"pad_r\">1411</td></tr><tr \
-class=\"odd\" nick=\"Guenter\" style=\"color:red\"><td class=\"pad_l\">8.</\
-td><td class=\"l\">Guenter</td><td>2025/2026</td><td class=\"pad_r\">1410</\
+\">1443</td></tr><tr class=\"even\" nick=\"Roterstern\" style=\"color:red\"\
+><td class=\"pad_l\">3.</td><td class=\"l\">Roterstern</td><td>2025/2026</t\
+d><td class=\"pad_r\">1429</td></tr><tr class=\"odd\" nick=\"FC_Lukasball\"\
+ style=\"\"><td class=\"pad_l\">4.</td><td class=\"l\">FC_Lukasball</td><td\
+>2020/2021</td><td class=\"pad_r\">1425</td></tr><tr class=\"even\" nick=\"\
+Isabell\" style=\"\"><td class=\"pad_l\"></td><td class=\"l\">Isabell</td><\
+td>2018/2019</td><td class=\"pad_r\">1425</td></tr><tr class=\"odd\" nick=\
+\"Sandhofen\" style=\"\"><td class=\"pad_l\"></td><td class=\"l inaktiv\">S\
+andhofen</td><td>2018/2019</td><td class=\"pad_r\">1425</td></tr><tr class=\
+\"even\" nick=\"Guenter\" style=\"color:red\"><td class=\"pad_l\">7.</td><t\
+d class=\"l\">Guenter</td><td>2025/2026</td><td class=\"pad_r\">1419</td></\
+tr><tr class=\"odd\" nick=\"KoloSoft\" style=\"\"><td class=\"pad_l\">8.</t\
+d><td class=\"l\">KoloSoft</td><td>2018/2019</td><td class=\"pad_r\">1411</\
 td></tr><tr class=\"even\" nick=\"FC_Lukasball\" style=\"\"><td class=\"pad\
 _l\">9.</td><td class=\"l\">FC_Lukasball</td><td>2013/2014</td><td class=\"\
 pad_r\">1403</td></tr><tr class=\"odd\" nick=\"Isabell\" style=\"\"><td cla\
