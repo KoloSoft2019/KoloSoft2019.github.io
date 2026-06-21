@@ -23,6 +23,7 @@ button {
 }
 </style>
 </head>
+
 <body>
 
 <button id="startButton">Start</button>
@@ -38,7 +39,13 @@ button {
     let running = false;
     let nextBeatTime = 0;
 
-    async function loadSound() {
+    let timerID = null;
+
+    // 🎯 BPM einstellen
+    const bpm = 120;
+    const interval = 60 / bpm;
+
+    async function loadSound(ctx) {
         const response = await fetch("Beat.mp3");
 
         if (!response.ok) {
@@ -46,12 +53,13 @@ button {
         }
 
         const arrayBuffer = await response.arrayBuffer();
-        return await audioContext.decodeAudioData(arrayBuffer);
+        return await ctx.decodeAudioData(arrayBuffer);
     }
 
     function schedule() {
 
-        while (nextBeatTime < audioContext.currentTime + 0.1) {
+        // Lookahead Scheduling (wichtig für Genauigkeit)
+        while (nextBeatTime < audioContext.currentTime + 0.2) {
 
             const source = audioContext.createBufferSource();
             source.buffer = audioBuffer;
@@ -59,11 +67,11 @@ button {
 
             source.start(nextBeatTime);
 
-            nextBeatTime += 1.0; // 1000 ms
+            nextBeatTime += interval;
         }
 
         if (running) {
-            requestAnimationFrame(schedule);
+            timerID = setTimeout(schedule, 25);
         }
     }
 
@@ -77,11 +85,12 @@ button {
             if (!audioContext) {
                 audioContext = new AudioContext();
                 await audioContext.resume();
-                audioBuffer = await loadSound();
+                audioBuffer = await loadSound(audioContext);
             }
 
             running = true;
-            nextBeatTime = audioContext.currentTime;
+
+            nextBeatTime = audioContext.currentTime + 0.1;
 
             schedule();
         }
@@ -90,6 +99,11 @@ button {
         else {
             running = false;
             button.textContent = "Start";
+
+            if (timerID) {
+                clearTimeout(timerID);
+                timerID = null;
+            }
         }
     });
 
@@ -97,3 +111,4 @@ button {
 </script>
 
 </body>
+</html>
