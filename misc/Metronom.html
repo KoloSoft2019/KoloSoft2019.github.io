@@ -80,7 +80,7 @@ button:disabled {
             if (!audioContext) {
                 try {
                     isLoading = true;
-                    button.textContent = "Lädt...";
+                    //button.textContent = "Lädt...";
                     button.disabled = true;
 
                     audioContext = new (window.AudioContext || window.webkitAudioContext)();
