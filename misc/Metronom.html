@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exaktes Metronom</title>
+<title>Exakter 1-Sekunden-Timer</title>
 
 <style>
 body {
@@ -21,6 +21,10 @@ button {
     padding: 20px 40px;
     cursor: pointer;
 }
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 </style>
 </head>
 
@@ -35,38 +39,31 @@ button {
 
     let audioContext = null;
     let audioBuffer = null;
-
     let running = false;
     let nextBeatTime = 0;
-
     let timerID = null;
+    let isLoading = false;
 
-    // 🎯 BPM einstellen
-    const bpm = 120;
-    const interval = 60 / bpm;
+    // 🎯 Intervall auf exakt 1 Sekunde (1000ms) gesetzt
+    const interval = 1.0; 
 
     async function loadSound(ctx) {
         const response = await fetch("Beat.mp3");
-
         if (!response.ok) {
             throw new Error("Beat.mp3 konnte nicht geladen werden.");
         }
-
         const arrayBuffer = await response.arrayBuffer();
         return await ctx.decodeAudioData(arrayBuffer);
     }
 
     function schedule() {
-
-        // Lookahead Scheduling (wichtig für Genauigkeit)
+        // Lookahead-Scheduling für maximale Präzision
         while (nextBeatTime < audioContext.currentTime + 0.2) {
-
             const source = audioContext.createBufferSource();
             source.buffer = audioBuffer;
             source.connect(audioContext.destination);
 
             source.start(nextBeatTime);
-
             nextBeatTime += interval;
         }
 
@@ -76,25 +73,39 @@ button {
     }
 
     button.addEventListener("click", async () => {
+        if (isLoading) return;
 
         // START
         if (!running) {
-
-            button.textContent = "Stop";
-
             if (!audioContext) {
-                audioContext = new AudioContext();
-                await audioContext.resume();
-                audioBuffer = await loadSound(audioContext);
+                try {
+                    isLoading = true;
+                    button.textContent = "Lädt...";
+                    button.disabled = true;
+
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    audioBuffer = await loadSound(audioContext);
+                } catch (error) {
+                    alert("Fehler: " + error.message);
+                    button.textContent = "Start";
+                    return;
+                } finally {
+                    isLoading = false;
+                    button.disabled = false;
+                }
             }
 
+            if (audioContext.state === "suspended") {
+                await audioContext.resume();
+            }
+
+            button.textContent = "Stop";
             running = true;
-
-            nextBeatTime = audioContext.currentTime + 0.1;
-
+            
+            // Startet ohne spürbare Verzögerung
+            nextBeatTime = audioContext.currentTime + 0.05;
             schedule();
         }
-
         // STOP
         else {
             running = false;
