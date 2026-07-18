@@ -864,10 +864,12 @@
                         }
                     }
 
+                    /*
                     if (audioContext.state === "suspended")
                     {
                         await audioContext.resume();
                     }
+                    */
 
                     running = true;
                     updateMetronomUI();
@@ -895,6 +897,13 @@
                     {
                         cancelAnimationFrame(animationFrame);
                         animationFrame = null;
+                    }
+
+                    if (audioContext)
+                    {
+                        await audioContext.close();
+                        audioContext = null;
+                        audioBuffer = null;
                     }
 
                     pendel.setAttribute
