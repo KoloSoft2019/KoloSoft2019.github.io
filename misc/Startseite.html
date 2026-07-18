@@ -63,7 +63,7 @@
             font-family: Arial;
         }
 
-        a
+        a, #id_btn_metronom
         {
             display: table-cell;
             vertical-align: middle;
@@ -134,7 +134,7 @@
             cursor: default;
         }
 
-        div.area.hidden
+        .hidden
         {
             display: none;
         }
@@ -162,7 +162,22 @@
             color: #43341F;
             font-weight: bold;
         }
-        
+
+        #id_btn_metronom
+        {
+            cursor: pointer;
+        }
+
+        #id_btn_metronom.running #metronom_play_button
+        {
+            display: none;
+        }
+
+        #id_btn_metronom:not(.running) #metronom_stop_button
+        {
+            display: none;
+        }
+
     </style>
 
     <!-- SVG-Sprite -->
@@ -574,12 +589,10 @@
                 -->
 
             <div class="link">
-                <a href="https://www.kolosoft.de/misc/Metronom.html" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="56" viewBox="0 0 1167 656"><defs><linearGradient id="metronom_lg_metal" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#111" /><stop offset="50%" stop-color="#444" /><stop offset="100%" stop-color="#111" /></linearGradient><!-- wiederverwendbarer horizontaler Strich --><rect id="metronom_skala_waagrechter_strich" width="60" height="8" fill="url(#metronom_lg_metal)" /><!-- Fuß --><rect id="metronom_fuss" width="65" height="46" fill="#000" rx="10" /></defs><!-- Gehäuse --><polygon points="140,8 315,8 420,500 45,500" fill="#fff" stroke="#000" stroke-width="16" stroke-linejoin="round" /><!-- Skala verikaler Strich --><rect x="226" y="0" width="1" height="500" fill="#000" /><rect x="227" y="0" width="1" height="500" fill="#111" /><rect x="228" y="0" width="1" height="500" fill="#222" /><rect x="229" y="0" width="1" height="500" fill="#333" /><rect x="230" y="0" width="1" height="500" fill="#444" /><rect x="231" y="0" width="1" height="500" fill="#333" /><rect x="232" y="0" width="1" height="500" fill="#222" /><rect x="233" y="0" width="1" height="500" fill="#111" /><rect x="234" y="0" width="1" height="500" fill="#000" /><!-- Skala waagrechte Striche --><use href="#metronom_skala_waagrechter_strich" x="200" y="74" /><use href="#metronom_skala_waagrechter_strich" x="200" y="139" /><use href="#metronom_skala_waagrechter_strich" x="200" y="204" /><use href="#metronom_skala_waagrechter_strich" x="200" y="269" /><use href="#metronom_skala_waagrechter_strich" x="200" y="334" /><use href="#metronom_skala_waagrechter_strich" x="200" y="399" /><use href="#metronom_skala_waagrechter_strich" x="200" y="464" /><!-- Deckel --><polygon points="140,8 315,8 323,45 133,45" fill="#4D5059" stroke="#000" stroke-width="16" stroke-linejoin="round" /><!-- Fuß links --><use href="#metronom_fuss" x="40" y="610" /><!-- Fuß rechts --><use href="#metronom_fuss" x="355" y="610" /><!-- Pendel --><g transform="rotate(-25 230 550)"><!-- Stange --><rect x="222" y="50" width="16" height="500" fill="#000" rx="5" /><!-- Gewicht --><rect x="197" y="150" width="66" height="56" fill="#4D5059" rx="5" stroke="#000" stroke-width="16" /></g><!-- Basis --><polygon points="30,500 430,500 452,620 8,620" fill="#4D5059" stroke="#000" stroke-width="16" stroke-linejoin="round" /><!-- Play button --><g transform="translate(50,0)"><!-- Hintergrund --><circle cx="830" cy="328" r="260" fill="#7DB231" stroke="#000" stroke-width="32" /><!-- Play-Symbol --><polygon points="770,213 770,443 950,333" fill="#FFFFFF" /></g></svg>
-                </a>
+                <div id="id_btn_metronom">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="56" viewBox="0 0 1167 656"><defs><linearGradient id="metronom_lg_metal" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#111" /><stop offset="50%" stop-color="#444" /><stop offset="100%" stop-color="#111" /></linearGradient><!-- wiederverwendbarer horizontaler Strich --><rect id="metronom_skala_waagrechter_strich" width="60" height="8" fill="url(#metronom_lg_metal)" /><!-- Fuß --><rect id="metronom_fuss" width="65" height="46" fill="#000" rx="10" /></defs><!-- Gehäuse --><polygon points="140,8 320,8 420,500 40,500" fill="#fff" stroke="#000" stroke-width="16" stroke-linejoin="round" /><!-- Skala verikaler Strich --><rect x="226" y="0" width="1" height="500" fill="#000" /><rect x="227" y="0" width="1" height="500" fill="#111" /><rect x="228" y="0" width="1" height="500" fill="#222" /><rect x="229" y="0" width="1" height="500" fill="#333" /><rect x="230" y="0" width="1" height="500" fill="#444" /><rect x="231" y="0" width="1" height="500" fill="#333" /><rect x="232" y="0" width="1" height="500" fill="#222" /><rect x="233" y="0" width="1" height="500" fill="#111" /><rect x="234" y="0" width="1" height="500" fill="#000" /><!-- Skala waagrechte Striche --><use href="#metronom_skala_waagrechter_strich" x="200" y="74" /><use href="#metronom_skala_waagrechter_strich" x="200" y="139" /><use href="#metronom_skala_waagrechter_strich" x="200" y="204" /><use href="#metronom_skala_waagrechter_strich" x="200" y="269" /><use href="#metronom_skala_waagrechter_strich" x="200" y="334" /><use href="#metronom_skala_waagrechter_strich" x="200" y="399" /><use href="#metronom_skala_waagrechter_strich" x="200" y="464" /><!-- Deckel --><polygon points="140,8 320,8 327,45 133,45" fill="#4D5059" stroke="#000" stroke-width="16" stroke-linejoin="round" /><!-- Fuß links --><use href="#metronom_fuss" x="40" y="610" /><!-- Fuß rechts --><use href="#metronom_fuss" x="355" y="610" /><!-- Pendel --><g id="metronom_pendel" transform="rotate(-25 230 550)"><!-- Stange --><rect x="222" y="50" width="16" height="500" fill="#000" rx="5" /><!-- Gewicht --><rect x="197" y="150" width="66" height="56" fill="#4D5059" rx="5" stroke="#000" stroke-width="16" /></g><!-- Basis --><polygon points="30,500 430,500 452,620 8,620" fill="#4D5059" stroke="#000" stroke-width="16" stroke-linejoin="round" /><!-- Play button --><g id="metronom_play_button" transform="translate(50,0)"><!-- Hintergrund --><circle cx="830" cy="328" r="260" fill="#7DB231" stroke="#000" stroke-width="32" /><!-- Play-Symbol --><polygon points="770,213 770,443 950,333" fill="#FFFFFF" /></g><g id="metronom_stop_button" transform="translate(50,0)"><!-- Hintergrund --><circle cx="830" cy="328" r="260" fill="#E24132" stroke="#000" stroke-width="32" /><!-- Stop-Symbol --><rect x="730" y="228" width="200" height="200" fill="#FFFFFF" /></g></svg>
+                </div>
             </div>
-
-
 
         </div>
 
@@ -720,9 +733,179 @@
                 const target = document.getElementById(button.dataset.target);
 
                 target.classList.toggle("hidden");
-                button.querySelector("use").setAttribute("href", target.classList.contains("hidden") ? "#switched_off" : "#switched_on");
+                button.querySelector("use").setAttribute("href", target.classList.contains("hidden") ? "#switched_off" : "#switched_on" );
             });
         });
+
+        //
+        // metronom
+        //
+        (async () =>
+        {
+            const button = document.getElementById("id_btn_metronom");
+            const pendel = document.getElementById("metronom_pendel");
+
+            let audioContext = null;
+            let audioBuffer = null; 
+            let running = false;
+            let nextBeatTime = 0;
+            let timerID = null;
+            let isLoading = false;
+            let animationFrame = null;
+            let startTime = 0;
+            
+            // 🎯 Intervall auf exakt 1 Sekunde (1000ms) gesetzt
+            const interval = 1.0;
+            const delay = 0.05;
+
+            const pendelSettings =
+            {
+                pivotX: 230,
+                pivotY: 550,
+                startAngle: -25,
+                endAngle: 25
+            };
+
+            async function loadSound(ctx)
+            {
+                const dataUrl = "data:audio/mpeg;base64,//uQZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAAFTADj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj//////////////////////////////////////////////////////////////////8AAABQTEFNRTMuMTAwBLkAAAAAAAAAADUgJAVaTQAB4AAABUw+ogqUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//vQZAAAAooJWdU8AAgAAA0goAABHWmDX1nMEAgAADSDAAAAAAAgAlPSd+/fv37/eNZYy3i3ibibkLOuOD73LKHMEAfD9YEBAEAQBAHwfP0SgIAgD4Pg+fKAgCBz7xACDvgmf5zgMH8PggCAYlwfP/lwfB8HygACjj3ZKzobnufzAogMSjAwcEjCwSpAqCDJ5uMpMMugYAIBgUGCMBH+OcZTLRlRLqcmDQIVQGBJnJq8QENpTzGpKexeIOGxVQNlMBP0is6LOWurXZo+7jzMSf603JYzjTMOpqSVx10TsSf6NVo1KLO3RiUNS9rkU2/kOSrVNTflKqtLGa1NGpyIO5FKz+RSVb1TY8yq0sprU1NVpaW1KJZbqWJ/VirZ1VpeVaWzWpqarS46y//l/cJfb+np+16erS0u6WU/VlOt6/8dZZY446yy3jbxp7d6nt2K9uxu3Scpcu1QqMNhFAmEcKXXRrIFgBPYAiU2kbKVitWCokA0HMqVMptFpS7s7kkFgSDQaatDEKChv5BT/hZDf4cFNmwshsVEMCmzYSIbF4M2TEFNRTMuMTAwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqv/7EGTxD/H/DchPYSAKAAANIOAAAQAAAaQAAAAgAAA0gAAABKqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq"; // komplette Base64-MP3
+                const response = await fetch(dataUrl);
+
+                if (!response.ok)
+                    throw new Error("Beat.mp3 konnte nicht geladen werden.");
+
+                const arrayBuffer = await response.arrayBuffer();
+                return await ctx.decodeAudioData(arrayBuffer);
+            }
+
+            function schedule()
+            {
+                // Lookahead-Scheduling für maximale Präzision
+                while (nextBeatTime < audioContext.currentTime + 0.2)
+                {
+                    const source = audioContext.createBufferSource();
+                    source.buffer = audioBuffer;
+                    source.connect(audioContext.destination);
+
+                    source.start(nextBeatTime);
+                    nextBeatTime += interval;
+                }
+
+                if (running)
+                {
+                    timerID = setTimeout(schedule, 25);
+                }
+            }
+
+            function animatePendulum()
+            {
+                if (!running)
+                    return;
+
+                const elapsed = audioContext.currentTime - startTime;
+
+                // Position innerhalb einer Sekunde (0 ... 1)
+                const phase = (elapsed % interval) / interval;
+
+                let angle;
+
+                if (Math.floor(elapsed / interval) % 2 === 0)
+                {
+                    // links -> rechts
+                    angle = pendelSettings.startAngle + phase * (pendelSettings.endAngle - pendelSettings.startAngle);
+                }
+                else
+                {
+                    // rechts -> links
+                    angle = pendelSettings.endAngle - phase * (pendelSettings.endAngle - pendelSettings.startAngle);
+                }
+
+                pendel.setAttribute(
+                    "transform",
+                    `rotate(${angle} ${pendelSettings.pivotX} ${pendelSettings.pivotY})`
+                );
+
+                animationFrame = requestAnimationFrame(animatePendulum);
+            }
+
+            function updateMetronomUI()
+            {
+                button.classList.toggle("running", running);
+            }
+
+            button.addEventListener("click", async () =>
+            {
+                if (isLoading) return;
+
+                // START
+                if (!running)
+                {
+                    if (!audioContext)
+                    {
+                        try
+                        {
+                            isLoading = true;
+                            //button.textContent = "Lädt...";
+                            button.disabled = true;
+
+                            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                            audioBuffer = await loadSound(audioContext);
+                        }
+                        catch (error)
+                        {
+                            alert("Fehler: " + error.message);
+                            //button.textContent = "Start";
+                            return;
+                        }
+                        finally
+                        {
+                            isLoading = false;
+                            button.disabled = false;
+                        }
+                    }
+
+                    if (audioContext.state === "suspended")
+                    {
+                        await audioContext.resume();
+                    }
+
+                    running = true;
+                    updateMetronomUI();
+
+                    // Startet ohne spürbare Verzögerung
+                    nextBeatTime = audioContext.currentTime + delay;
+                    startTime = audioContext.currentTime;
+
+                    schedule();
+                    animatePendulum();
+                }
+                // STOP
+                else
+                {
+                    running = false;
+                    updateMetronomUI();
+
+                    if (timerID)
+                    {
+                        clearTimeout(timerID);
+                        timerID = null;
+                    }
+
+                    if (animationFrame)
+                    {
+                        cancelAnimationFrame(animationFrame);
+                        animationFrame = null;
+                    }
+
+                    pendel.setAttribute
+                    (
+                        "transform",
+                        `rotate(${pendelSettings.startAngle} ${pendelSettings.pivotX} ${pendelSettings.pivotY})`
+                    );
+                }
+            });
+
+        })();
     </script>
 
 </body>
