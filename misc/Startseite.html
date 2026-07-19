@@ -178,6 +178,11 @@
             display: none;
         }
 
+        #id_btn_metronom.running.stop_requested #metronom_stop_button
+        {
+            opacity: 0.5;
+        }
+
     </style>
 
     <!-- SVG-Sprite -->
@@ -743,201 +748,210 @@
             </div>
         </div>
         
-    <script>
-        document.querySelectorAll(".toggle-button").forEach(button =>
-        {
-            button.innerHTML = `<svg viewBox="-4 -5 44 26">
-                                    <use href="#switched_off"></use>
-                                </svg>`;
-
-            button.addEventListener("click", () =>
+        <script>
+            document.querySelectorAll(".toggle-button").forEach(button =>
             {
-                const target = document.getElementById(button.dataset.target);
+                button.innerHTML = `<svg viewBox="-4 -5 44 26">
+                                                    <use href="#switched_off"></use>
+                                                </svg>`;
 
-                target.classList.toggle("hidden");
-                button.querySelector("use").setAttribute("href", target.classList.contains("hidden") ? "#switched_off" : "#switched_on" );
+                button.addEventListener("click", () =>
+                {
+                    const target = document.getElementById(button.dataset.target);
+
+                    target.classList.toggle("hidden");
+                    button.querySelector("use").setAttribute("href", target.classList.contains("hidden") ? "#switched_off" : "#switched_on");
+                });
             });
-        });
 
-        //
-        // metronom
-        //
-        (async () =>
-        {
-            const button = document.getElementById("id_btn_metronom");
-            const pendel = document.getElementById("metronom_pendel");
-
-            let audioContext = null;
-            let audioBuffer = null; 
-            let running = false;
-            let nextBeatTime = 0;
-            let timerID = null;
-            let isLoading = false;
-            let animationFrame = null;
-            let startTime = 0;
-            
-            // 🎯 Intervall auf exakt 1 Sekunde (1000ms) gesetzt
-            const interval = 1.0;
-            const delay = 0.05;
-
-            const pendelSettings =
+            //
+            // metronom
+            //
+            (async () =>
             {
-                pivotX: 230,
-                pivotY: 550,
-                startAngle: -25,
-                endAngle: 25
-            };
+                const button = document.getElementById("id_btn_metronom");
+                const pendel = document.getElementById("metronom_pendel");
 
-            async function loadSound(ctx)
-            {
-                const dataUrl = "data:audio/mpeg;base64,//uQZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAAFTADj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj//////////////////////////////////////////////////////////////////8AAABQTEFNRTMuMTAwBLkAAAAAAAAAADUgJAVaTQAB4AAABUw+ogqUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//vQZAAAAooJWdU8AAgAAA0goAABHWmDX1nMEAgAADSDAAAAAAAgAlPSd+/fv37/eNZYy3i3ibibkLOuOD73LKHMEAfD9YEBAEAQBAHwfP0SgIAgD4Pg+fKAgCBz7xACDvgmf5zgMH8PggCAYlwfP/lwfB8HygACjj3ZKzobnufzAogMSjAwcEjCwSpAqCDJ5uMpMMugYAIBgUGCMBH+OcZTLRlRLqcmDQIVQGBJnJq8QENpTzGpKexeIOGxVQNlMBP0is6LOWurXZo+7jzMSf603JYzjTMOpqSVx10TsSf6NVo1KLO3RiUNS9rkU2/kOSrVNTflKqtLGa1NGpyIO5FKz+RSVb1TY8yq0sprU1NVpaW1KJZbqWJ/VirZ1VpeVaWzWpqarS46y//l/cJfb+np+16erS0u6WU/VlOt6/8dZZY446yy3jbxp7d6nt2K9uxu3Scpcu1QqMNhFAmEcKXXRrIFgBPYAiU2kbKVitWCokA0HMqVMptFpS7s7kkFgSDQaatDEKChv5BT/hZDf4cFNmwshsVEMCmzYSIbF4M2TEFNRTMuMTAwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqv/7EGTxD/H/DchPYSAKAAANIOAAAQAAAaQAAAAgAAA0gAAABKqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq"; // komplette Base64-MP3
-                const response = await fetch(dataUrl);
+                let audioContext = null;
+                let audioBuffer = null;
+                let running = false;
+                let stopRequested = false;
+                let nextBeatTime = 0;
+                let timerID = null;
+                let isLoading = false;
+                let animationFrame = null;
+                let startTime = 0;
 
-                if (!response.ok)
-                    throw new Error("Beat.mp3 konnte nicht geladen werden.");
+                // 🎯 Intervall auf exakt 1 Sekunde (1000ms) gesetzt
+                const interval = 1.0;
+                const delay = 0.05;
 
-                const arrayBuffer = await response.arrayBuffer();
-                return await ctx.decodeAudioData(arrayBuffer);
-            }
-
-            function schedule()
-            {
-                // Lookahead-Scheduling für maximale Präzision
-                while (nextBeatTime < audioContext.currentTime + 0.2)
+                const pendelSettings =
                 {
-                    const source = audioContext.createBufferSource();
-                    source.buffer = audioBuffer;
-                    source.connect(audioContext.destination);
+                    pivotX: 230,
+                    pivotY: 550,
+                    startAngle: -25,
+                    endAngle: 25
+                };
 
-                    source.start(nextBeatTime);
-                    nextBeatTime += interval;
+                async function loadSound(ctx)
+                {
+                    const dataUrl = "data:audio/mpeg;base64,//uQZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAAFTADj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj//////////////////////////////////////////////////////////////////8AAABQTEFNRTMuMTAwBLkAAAAAAAAAADUgJAVaTQAB4AAABUw+ogqUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//vQZAAAAooJWdU8AAgAAA0goAABHWmDX1nMEAgAADSDAAAAAAAgAlPSd+/fv37/eNZYy3i3ibibkLOuOD73LKHMEAfD9YEBAEAQBAHwfP0SgIAgD4Pg+fKAgCBz7xACDvgmf5zgMH8PggCAYlwfP/lwfB8HygACjj3ZKzobnufzAogMSjAwcEjCwSpAqCDJ5uMpMMugYAIBgUGCMBH+OcZTLRlRLqcmDQIVQGBJnJq8QENpTzGpKexeIOGxVQNlMBP0is6LOWurXZo+7jzMSf603JYzjTMOpqSVx10TsSf6NVo1KLO3RiUNS9rkU2/kOSrVNTflKqtLGa1NGpyIO5FKz+RSVb1TY8yq0sprU1NVpaW1KJZbqWJ/VirZ1VpeVaWzWpqarS46y//l/cJfb+np+16erS0u6WU/VlOt6/8dZZY446yy3jbxp7d6nt2K9uxu3Scpcu1QqMNhFAmEcKXXRrIFgBPYAiU2kbKVitWCokA0HMqVMptFpS7s7kkFgSDQaatDEKChv5BT/hZDf4cFNmwshsVEMCmzYSIbF4M2TEFNRTMuMTAwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqv/7EGTxD/H/DchPYSAKAAANIOAAAQAAAaQAAAAgAAA0gAAABKqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq"; // komplette Base64-MP3
+                    const response = await fetch(dataUrl);
+
+                    if (!response.ok)
+                        throw new Error("Beat.mp3 konnte nicht geladen werden.");
+
+                    const arrayBuffer = await response.arrayBuffer();
+                    return await ctx.decodeAudioData(arrayBuffer);
                 }
 
-                if (running)
+                function schedule()
                 {
-                    timerID = setTimeout(schedule, 25);
-                }
-            }
+                    // Lookahead-Scheduling für maximale Präzision
+                    while (nextBeatTime < audioContext.currentTime + 0.2)
+                    {
+                        const source = audioContext.createBufferSource();
+                        source.buffer = audioBuffer;
+                        source.connect(audioContext.destination);
 
-            function animatePendulum()
-            {
-                if (!running)
-                    return;
+                        source.start(nextBeatTime);
+                        nextBeatTime += interval;
+                    }
 
-                const elapsed = audioContext.currentTime - startTime;
-
-                // Position innerhalb einer Sekunde (0 ... 1)
-                const phase = (elapsed % interval) / interval;
-
-                let angle;
-
-                if (Math.floor(elapsed / interval) % 2 === 0)
-                {
-                    // links -> rechts
-                    angle = pendelSettings.startAngle + phase * (pendelSettings.endAngle - pendelSettings.startAngle);
-                }
-                else
-                {
-                    // rechts -> links
-                    angle = pendelSettings.endAngle - phase * (pendelSettings.endAngle - pendelSettings.startAngle);
+                    if (running)
+                    {
+                        timerID = setTimeout(schedule, 25);
+                    }
                 }
 
-                pendel.setAttribute(
-                    "transform",
-                    `rotate(${angle} ${pendelSettings.pivotX} ${pendelSettings.pivotY})`
-                );
-
-                animationFrame = requestAnimationFrame(animatePendulum);
-            }
-
-            function updateMetronomUI()
-            {
-                button.classList.toggle("running", running);
-            }
-
-            button.addEventListener("click", async () =>
-            {
-                if (isLoading) return;
-
-                // START
-                if (!running)
+                function animatePendulum()
                 {
-                    if (!audioContext)
-                    {
-                        try
-                        {
-                            isLoading = true;
-                            //button.textContent = "Lädt...";
-                            button.disabled = true;
+                    if (!running)
+                        return;
 
-                            audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                            audioBuffer = await loadSound(audioContext);
-                        }
-                        catch (error)
-                        {
-                            alert("Fehler: " + error.message);
-                            //button.textContent = "Start";
-                            return;
-                        }
-                        finally
-                        {
-                            isLoading = false;
-                            button.disabled = false;
-                        }
+                    const elapsed = audioContext.currentTime - startTime;
+
+                    // Position innerhalb einer Sekunde (0 ... 1)
+                    const phase = (elapsed % interval) / interval;
+
+                    let angle;
+
+                    if (Math.floor(elapsed / interval) % 2 === 0)
+                    {
+                        // links -> rechts
+                        angle = pendelSettings.startAngle + phase * (pendelSettings.endAngle - pendelSettings.startAngle);
+                    }
+                    else
+                    {
+                        // rechts -> links
+                        angle = pendelSettings.endAngle - phase * (pendelSettings.endAngle - pendelSettings.startAngle);
                     }
 
-                    /*
-                    if (audioContext.state === "suspended")
-                    {
-                        await audioContext.resume();
-                    }
-                    */
-
-                    running = true;
-                    updateMetronomUI();
-
-                    // Startet ohne spürbare Verzögerung
-                    nextBeatTime = audioContext.currentTime + delay;
-                    startTime = audioContext.currentTime;
-
-                    schedule();
-                    animatePendulum();
-                }
-                // STOP
-                else
-                {
-                    running = false;
-                    updateMetronomUI();
-
-                    if (timerID)
-                    {
-                        clearTimeout(timerID);
-                        timerID = null;
-                    }
-
-                    if (animationFrame)
-                    {
-                        cancelAnimationFrame(animationFrame);
-                        animationFrame = null;
-                    }
-
-                    if (audioContext)
-                    {
-                        await audioContext.close();
-                        audioContext = null;
-                        audioBuffer = null;
-                    }
-
-                    pendel.setAttribute
-                    (
+                    pendel.setAttribute(
                         "transform",
-                        `rotate(${pendelSettings.startAngle} ${pendelSettings.pivotX} ${pendelSettings.pivotY})`
+                        `rotate(${angle} ${pendelSettings.pivotX} ${pendelSettings.pivotY})`
                     );
-                }
-            });
 
-        })();
-    </script>
+                    animationFrame = requestAnimationFrame(animatePendulum);
+                }
+
+                function updateMetronomUI()
+                {
+                    button.classList.toggle("running", running);
+                    button.classList.toggle("stop_requested", stopRequested);
+                }
+
+                button.addEventListener("click", async () =>
+                {
+                    if (isLoading) return;
+                    if (stopRequested) return;
+
+                    // START
+                    if (!running)
+                    {
+                        if (!audioContext)
+                        {
+                            try
+                            {
+                                isLoading = true;
+                                //button.textContent = "Lädt...";
+                                button.disabled = true;
+
+                                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                                audioBuffer = await loadSound(audioContext);
+                            }
+                            catch (error)
+                            {
+                                alert("Fehler: " + error.message);
+                                //button.textContent = "Start";
+                                return;
+                            }
+                            finally
+                            {
+                                isLoading = false;
+                                button.disabled = false;
+                            }
+                        }
+
+                        /*
+                        if (audioContext.state === "suspended")
+                        {
+                            await audioContext.resume();
+                        }
+                        */
+
+                        running = true;
+                        stopRequested = false;
+                        updateMetronomUI();
+
+                        // Startet ohne spürbare Verzögerung
+                        nextBeatTime = audioContext.currentTime + delay;
+                        startTime = audioContext.currentTime;
+
+                        schedule();
+                        animatePendulum();
+                    }
+                    // STOP
+                    else
+                    {
+                        stopRequested = true;
+                        updateMetronomUI();
+
+                        /*
+                        running = false;
+                        updateMetronomUI();
+
+                        if (timerID)
+                        {
+                            clearTimeout(timerID);
+                            timerID = null;
+                        }
+
+                        if (animationFrame)
+                        {
+                            cancelAnimationFrame(animationFrame);
+                            animationFrame = null;
+                        }
+
+                        if (audioContext)
+                        {
+                            await audioContext.close();
+                            audioContext = null;
+                            audioBuffer = null;
+                        }
+
+                        pendel.setAttribute
+                            (
+                                "transform",
+                                `rotate(${pendelSettings.startAngle} ${pendelSettings.pivotX} ${pendelSettings.pivotY})`
+                            );
+                        */
+                    }
+                });
+
+            })();
+        </script>
 
 </body>
 </html>
