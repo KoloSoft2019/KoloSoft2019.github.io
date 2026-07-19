@@ -752,8 +752,8 @@
             document.querySelectorAll(".toggle-button").forEach(button =>
             {
                 button.innerHTML = `<svg viewBox="-4 -5 44 26">
-                                                                                                                                    <use href="#switched_off"></use>
-                                                                                                                                </svg>`;
+                                                                                                                                                    <use href="#switched_off"></use>
+                                                                                                                                                </svg>`;
 
                 button.addEventListener("click", () =>
                 {
@@ -793,6 +793,8 @@
                     startAngle: -25,
                     endAngle: 25
                 };
+
+                let oldAngle = pendelSettings.startAngle;
 
                 async function loadSound(ctx)
                 {
@@ -850,7 +852,7 @@
 
                     if (stopRequested)
                     {
-                        if (angle <= (pendelSettings.startAngle + 1))
+                        if (angle > oldAngle)
                         {
                             running = false;
                             stopRequested = false;
@@ -883,6 +885,8 @@
                         "transform",
                         `rotate(${angle} ${pendelSettings.pivotX} ${pendelSettings.pivotY})`
                     );
+
+                    oldAngle = angle;
 
                     if (running)
                         animationFrame = requestAnimationFrame(animatePendulum);
