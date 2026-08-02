@@ -1,4 +1,5 @@
 document.write('\
+<option>bundesliga-profis 2026/2027</option>\
 <option>bundesliga-profis 2025/2026</option>\
 <option>bundesliga-profis 2024/2025</option>\
 <option>bundesliga-profis 2023/2024</option>\
