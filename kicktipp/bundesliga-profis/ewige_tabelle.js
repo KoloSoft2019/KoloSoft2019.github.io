@@ -13,67 +13,67 @@ dth=\"40px\">9</th><th width=\"40px\">10</th><th width=\"55px\">wert</th><t\
 h width=\"50px\">getippt</th><th width=\"50px\">Siege</th><th width=\"75px\
 \">Einsätze</th><th class=\"pad_r\"></th></tr><tr class=\"even\" nick=\"Rot\
 erstern\"><td class=\"pad_l\">1.</td><td class=\"l\">Roterstern</td><td cla\
-ss=\"fett\">17623</td><td class=\"c\">13.18</td><td>4033</td><td><span clas\
-s=\"max_wert\">2071</span></td><td>51.35%</td><td>1331</td><td>425</td><td>\
+ss=\"fett\">17640</td><td class=\"c\">13.20</td><td>4039</td><td><span clas\
+s=\"max_wert\">2073</span></td><td>51.32%</td><td>1332</td><td>426</td><td>\
 <span>315</span></td><td>8.5094</td><td>-</td><td><span>24</span></td><td c\
 lass=\"pad_r r fett o_avg\">213.50 €</td><td></td></tr><tr class=\"odd\" ni\
 ck=\"KoloSoft\"><td class=\"pad_l\">2.</td><td class=\"l\">KoloSoft</td><td\
- class=\"fett\">17617</td><td class=\"c\">13.18</td><td>4033</td><td><span>\
-2052</span></td><td>50.88%</td><td>1216</td><td>471</td><td><span>365</span\
-></td><td>8.5853</td><td>-</td><td><span>21<zaehler>1</zaehler>/<nenner>3</\
+ class=\"fett\">17633</td><td class=\"c\">13.20</td><td>4039</td><td><span>\
+2054</span></td><td>50.85%</td><td>1218</td><td>471</td><td><span>365</span\
+></td><td>8.5847</td><td>-</td><td><span>21<zaehler>1</zaehler>/<nenner>3</\
 nenner></span></td><td class=\"pad_r r fett o_avg\">265.17 €</td><td></td><\
 /tr><tr class=\"even\" nick=\"FC_Lukasball\"><td class=\"pad_l\">3.</td><td\
- class=\"l\">FC_Lukasball</td><td class=\"fett\">17338</td><td class=\"c\">\
-13.18</td><td>4033</td><td><span>2022</span></td><td>50.14%</td><td>1229</t\
-d><td>424</td><td><span>369</span></td><td>8.5747</td><td>2</td><td><span>1\
+ class=\"l\">FC_Lukasball</td><td class=\"fett\">17356</td><td class=\"c\">\
+13.20</td><td>4039</td><td><span>2024</span></td><td>50.11%</td><td>1230</t\
+d><td>424</td><td><span>370</span></td><td>8.5751</td><td>2</td><td><span>1\
 9<zaehler>1</zaehler>/<nenner>4</nenner></span></td><td class=\"pad_r r fet\
-t o_avg\">137.25 €</td><td></td></tr><tr class=\"odd\" nick=\"Guenter\"><td\
- class=\"pad_l\">4.</td><td class=\"l\">Guenter</td><td class=\"fett\">1706\
-4</td><td class=\"c\">13.18</td><td>4033</td><td><span>1990</span></td><td>\
-49.34%</td><td>1192</td><td>452</td><td><span>346</span></td><td>8.5749</td\
-><td>19</td><td><span>16</span></td><td class=\"pad_r r fett o_avg\">16.00 \
-€</td><td></td></tr><tr class=\"even\" nick=\"Isabell\"><td class=\"pad_l\"\
->5.</td><td class=\"l\">Isabell</td><td class=\"fett\">17063</td><td class=\
-\"c\">13.18</td><td>4033</td><td><span>1980</span></td><td>49.09%</td><td>1\
-155</td><td>427</td><td><span class=\"max_wert\">398</span></td><td>8.6177<\
-/td><td>1</td><td><span>25<zaehler>1</zaehler>/<nenner>3</nenner></span></t\
-d><td class=\"pad_r r fett o_avg\">32.67 €</td><td></td></tr><tr class=\"od\
+t o_avg\">137.25 €</td><td></td></tr><tr class=\"odd\" nick=\"Isabell\"><td\
+ class=\"pad_l\">4.</td><td class=\"l\">Isabell</td><td class=\"fett\">1708\
+8</td><td class=\"c\">13.20</td><td>4039</td><td><span>1983</span></td><td>\
+49.10%</td><td>1157</td><td>428</td><td><span class=\"max_wert\">398</span>\
+</td><td>8.6172</td><td>1</td><td><span>25<zaehler>1</zaehler>/<nenner>3</n\
+enner></span></td><td class=\"pad_r r fett o_avg\">32.67 €</td><td></td></t\
+r><tr class=\"even\" nick=\"Guenter\"><td class=\"pad_l\">5.</td><td class=\
+\"l\">Guenter</td><td class=\"fett\">17081</td><td class=\"c\">13.20</td><t\
+d>4039</td><td><span>1992</span></td><td>49.32%</td><td>1193</td><td>453</t\
+d><td><span>346</span></td><td>8.5748</td><td>19</td><td><span>16</span></t\
+d><td class=\"pad_r r fett o_avg\">16.00 €</td><td></td></tr><tr class=\"od\
 d\" nick=\"Feintracht\"><td class=\"pad_l\">6.</td><td class=\"l\">Feintrac\
-ht</td><td class=\"fett\">16805</td><td class=\"c\">13.18</td><td>4033</td>\
-<td><span>1955</span></td><td>48.48%</td><td>1150</td><td>445</td><td><span\
->360</span></td><td>8.5959</td><td>2</td><td><span>17<zaehler>5</zaehler>/<\
+ht</td><td class=\"fett\">16821</td><td class=\"c\">13.20</td><td>4039</td>\
+<td><span>1957</span></td><td>48.45%</td><td>1152</td><td>445</td><td><span\
+>360</span></td><td>8.5953</td><td>2</td><td><span>17<zaehler>5</zaehler>/<\
 nenner>6</nenner></span></td><td class=\"pad_r r fett u_avg\">-131.08 €</td\
 ><td></td></tr><tr class=\"even\" nick=\"Mandzukic9\"><td class=\"pad_l\">7\
-.</td><td class=\"l\">Mandzukic9</td><td class=\"fett\">16635</td><td class\
-=\"c\">13.18</td><td>4033</td><td><span>1933</span></td><td>47.93%</td><td>\
-1125</td><td>445</td><td><span>363</span></td><td>8.6058</td><td>54</td><td\
+.</td><td class=\"l\">Mandzukic9</td><td class=\"fett\">16652</td><td class\
+=\"c\">13.20</td><td>4039</td><td><span>1935</span></td><td>47.91%</td><td>\
+1126</td><td>446</td><td><span>363</span></td><td>8.6057</td><td>54</td><td\
 ><span>26<zaehler>1</zaehler>/<nenner>6</nenner></span></td><td class=\"pad\
 _r r fett u_avg\">-55.67 €</td><td></td></tr><tr class=\"odd\" nick=\"Chicl\
 anero\"><td class=\"pad_l\">8.</td><td class=\"l\">Chiclanero*</td><td clas\
-s=\"fett\">16476</td><td class=\"c\">13.18</td><td>4033</td><td><span>1919<\
-/span></td><td>47.58%</td><td>1130</td><td>454</td><td><span>335</span></td\
-><td>8.5857</td><td>16</td><td><span class=\"max_wert\">39<zaehler>3</zaehl\
+s=\"fett\">16502</td><td class=\"c\">13.20</td><td>4039</td><td><span>1922<\
+/span></td><td>47.59%</td><td>1132</td><td>454</td><td><span>336</span></td\
+><td>8.5858</td><td>16</td><td><span class=\"max_wert\">39<zaehler>3</zaehl\
 er>/<nenner>4</nenner></span></td><td class=\"pad_r r fett u_avg\">-117.74 \
 €</td><td></td></tr><tr class=\"even\" nick=\"Karsten\"><td class=\"pad_l\"\
->9.</td><td class=\"l\">Karsten</td><td class=\"fett\">16239</td><td class=\
-\"c\">13.18</td><td>4033</td><td><span>1895</span></td><td>46.99%</td><td>1\
-140</td><td>431</td><td><span>324</span></td><td>8.5694</td><td>-</td><td><\
+>9.</td><td class=\"l\">Karsten</td><td class=\"fett\">16265</td><td class=\
+\"c\">13.20</td><td>4039</td><td><span>1898</span></td><td>46.99%</td><td>1\
+142</td><td>431</td><td><span>325</span></td><td>8.5695</td><td>-</td><td><\
 span>21<zaehler>5</zaehler>/<nenner>6</nenner></span></td><td class=\"pad_r\
  r fett u_avg\">-177.33 €</td><td></td></tr><tr class=\"odd\" nick=\"Darkfl\
 ar\"><td class=\"pad_l\">10.</td><td class=\"l\">Darkflar</td><td class=\"f\
-ett\">15198</td><td class=\"c\">12.18</td><td>3727</td><td><span>1775</span\
-></td><td>47.63%</td><td>1070</td><td>412</td><td><span>293</span></td><td>\
-8.5623</td><td>116</td><td><span>23</span></td><td class=\"pad_r r fett u_a\
+ett\">15224</td><td class=\"c\">12.20</td><td>3733</td><td><span>1778</span\
+></td><td>47.63%</td><td>1071</td><td>414</td><td><span>293</span></td><td>\
+8.5624</td><td>116</td><td><span>23</span></td><td class=\"pad_r r fett u_a\
 vg\">-73.00 €</td><td></td></tr><tr class=\"even\" nick=\"Striker\"><td cla\
-ss=\"pad_l\">11.</td><td class=\"l\">Striker</td><td class=\"fett\">13271</\
-td><td class=\"c\">10.18</td><td>3115</td><td><span>1542</span></td><td>49.\
-50%</td><td>893</td><td>363</td><td><span>286</span></td><td>8.6064</td><td\
+ss=\"pad_l\">11.</td><td class=\"l\">Striker</td><td class=\"fett\">13288</\
+td><td class=\"c\">10.20</td><td>3121</td><td><span>1544</span></td><td>49.\
+47%</td><td>894</td><td>364</td><td><span>286</span></td><td>8.6062</td><td\
 >-</td><td><span>24<zaehler>3</zaehler>/<nenner>4</nenner></span></td><td c\
 lass=\"pad_r r fett u_avg\">-10.50 €</td><td></td></tr><tr class=\"odd\" ni\
 ck=\"Palacos\"><td class=\"pad_l\">12.</td><td class=\"l\">Palacos</td><td \
-class=\"fett\">12659</td><td class=\"c\">10.18</td><td>3115</td><td><span>1\
-468</span></td><td>47.13%</td><td>835</td><td>351</td><td><span>282</span><\
-/td><td>8.6233</td><td>29</td><td><span>20<zaehler>2</zaehler>/<nenner>3</n\
+class=\"fett\">12685</td><td class=\"c\">10.20</td><td>3121</td><td><span>1\
+471</span></td><td>47.13%</td><td>837</td><td>351</td><td><span>283</span><\
+/td><td>8.6234</td><td>29</td><td><span>20<zaehler>2</zaehler>/<nenner>3</n\
 enner></span></td><td class=\"pad_r r fett u_avg\">-30.91 €</td><td></td></\
 tr><tr class=\"even\" nick=\"Rene\"><td class=\"pad_l\">13.</td><td class=\
 \"l inaktiv\">Rene</td><td class=\"fett\">12351</td><td class=\"c\">10</td>\
@@ -87,51 +87,51 @@ td>48.55%</td><td>775</td><td>341</td><td><span>221</span></td><td>8.5856</\
 td><td>-</td><td><span>14<zaehler>7</zaehler>/<nenner>12</nenner></span></t\
 d><td class=\"pad_r r fett o_avg\">101.42 €</td><td></td></tr><tr class=\"e\
 ven\" nick=\"KaiserFranz\"><td class=\"pad_l\">15.</td><td class=\"l\">Kais\
-erFranz</td><td class=\"fett\">11145</td><td class=\"c\">9.18</td><td>2809<\
-/td><td><span>1292</span></td><td>46.00%</td><td>700</td><td>375</td><td><s\
-pan>217</span></td><td>8.6262</td><td>1</td><td><span>28<zaehler>2</zaehler\
+erFranz</td><td class=\"fett\">11170</td><td class=\"c\">9.20</td><td>2815<\
+/td><td><span>1295</span></td><td>46.00%</td><td>702</td><td>376</td><td><s\
+pan>217</span></td><td>8.6255</td><td>1</td><td><span>28<zaehler>2</zaehler\
 >/<nenner>3</nenner></span></td><td class=\"pad_r r fett u_avg\">-74.16 €</\
 td><td></td></tr><tr class=\"odd\" nick=\"Sniper\"><td class=\"pad_l\">16.<\
-/td><td class=\"l\">Sniper</td><td class=\"fett\">9994</td><td class=\"c\">\
-8.18</td><td>2503</td><td><span>1162</span></td><td>46.42%</td><td>662</td>\
-<td>302</td><td><span>198</span></td><td>8.6007</td><td>2</td><td><span>19<\
-zaehler>5</zaehler>/<nenner>6</nenner></span></td><td class=\"pad_r r fett \
-u_avg\">-100.33 €</td><td></td></tr><tr class=\"even\" nick=\"Notbremse\"><\
-td class=\"pad_l\">17.</td><td class=\"l\">Notbremse</td><td class=\"fett\"\
->9550</td><td class=\"c\">7.18</td><td>2197</td><td><span>1117</span></td><\
-td>50.84%</td><td>679</td><td>262</td><td><span>176</span></td><td>8.5497</\
-td><td>-</td><td><span>7<zaehler>1</zaehler>/<nenner>2</nenner></span></td>\
-<td class=\"pad_r r fett o_avg\">51.00 €</td><td></td></tr><tr class=\"odd\
-\" nick=\"Chancentod\"><td class=\"pad_l\">18.</td><td class=\"l\">Chancent\
-od</td><td class=\"fett\">9311</td><td class=\"c\">7.18</td><td>2197</td><t\
-d><span>1082</span></td><td>49.25%</td><td>613</td><td>283</td><td><span>18\
-6</span></td><td>8.6054</td><td>1</td><td><span>16</span></td><td class=\"p\
-ad_r r fett u_avg\">-40.25 €</td><td></td></tr><tr class=\"even\" nick=\"mi\
-chael_grube\"><td class=\"pad_l\">19.</td><td class=\"l inaktiv\">michael_g\
-rube</td><td class=\"fett\">7661</td><td class=\"c\">6</td><td>1836</td><td\
-><span>894</span></td><td>48.69%</td><td>536</td><td>207</td><td><span>151<\
-/span></td><td>8.5694</td><td>5</td><td><span>3<zaehler>3</zaehler>/<nenner\
->4</nenner></span></td><td class=\"pad_r r fett o_avg\">13.75 €</td><td></t\
-d></tr><tr class=\"odd\" nick=\"A.Lache\"><td class=\"pad_l\">20.</td><td c\
-lass=\"l inaktiv\">A.Lache</td><td class=\"fett\">7507</td><td class=\"c\">\
-6</td><td>1836</td><td><span>869</span></td><td>47.33%</td><td>475</td><td>\
-233</td><td><span>161</span></td><td>8.6387</td><td>-</td><td><span>11<zaeh\
-ler>1</zaehler>/<nenner>4</nenner></span></td><td class=\"pad_r r fett u_av\
-g\">-78.75 €</td><td></td></tr><tr class=\"even\" nick=\"DerLupfer\"><td cl\
-ass=\"pad_l\">21.</td><td class=\"l inaktiv\">DerLupfer</td><td class=\"fet\
-t\">4737</td><td class=\"c\">4</td><td>1224</td><td><span>552</span></td><t\
-d>45.10%</td><td>322</td><td>139</td><td><span>91</span></td><td>8.5815</td\
-><td>41</td><td><span>9<zaehler>1</zaehler>/<nenner>6</nenner></span></td><\
-td class=\"pad_r r fett u_avg\">-48.16 €</td><td></td></tr><tr class=\"odd\
+/td><td class=\"l\">Sniper</td><td class=\"fett\">10012</td><td class=\"c\"\
+>8.20</td><td>2509</td><td><span>1164</span></td><td>46.39%</td><td>663</td\
+><td>302</td><td><span>199</span></td><td>8.6014</td><td>2</td><td><span>19\
+<zaehler>5</zaehler>/<nenner>6</nenner></span></td><td class=\"pad_r r fett\
+ u_avg\">-100.33 €</td><td></td></tr><tr class=\"even\" nick=\"Notbremse\">\
+<td class=\"pad_l\">17.</td><td class=\"l\">Notbremse</td><td class=\"fett\
+\">9567</td><td class=\"c\">7.20</td><td>2203</td><td><span>1119</span></td\
+><td>50.79%</td><td>680</td><td>263</td><td><span>176</span></td><td>8.5496\
+</td><td>-</td><td><span>7<zaehler>1</zaehler>/<nenner>2</nenner></span></t\
+d><td class=\"pad_r r fett o_avg\">51.00 €</td><td></td></tr><tr class=\"od\
+d\" nick=\"Chancentod\"><td class=\"pad_l\">18.</td><td class=\"l\">Chancen\
+tod</td><td class=\"fett\">9337</td><td class=\"c\">7.20</td><td>2203</td><\
+td><span>1085</span></td><td>49.25%</td><td>614</td><td>285</td><td><span>1\
+86</span></td><td>8.6055</td><td>1</td><td><span>16</span></td><td class=\"\
+pad_r r fett u_avg\">-40.25 €</td><td></td></tr><tr class=\"even\" nick=\"m\
+ichael_grube\"><td class=\"pad_l\">19.</td><td class=\"l inaktiv\">michael_\
+grube</td><td class=\"fett\">7661</td><td class=\"c\">6</td><td>1836</td><t\
+d><span>894</span></td><td>48.69%</td><td>536</td><td>207</td><td><span>151\
+</span></td><td>8.5694</td><td>5</td><td><span>3<zaehler>3</zaehler>/<nenne\
+r>4</nenner></span></td><td class=\"pad_r r fett o_avg\">13.75 €</td><td></\
+td></tr><tr class=\"odd\" nick=\"A.Lache\"><td class=\"pad_l\">20.</td><td \
+class=\"l inaktiv\">A.Lache</td><td class=\"fett\">7507</td><td class=\"c\"\
+>6</td><td>1836</td><td><span>869</span></td><td>47.33%</td><td>475</td><td\
+>233</td><td><span>161</span></td><td>8.6387</td><td>-</td><td><span>11<zae\
+hler>1</zaehler>/<nenner>4</nenner></span></td><td class=\"pad_r r fett u_a\
+vg\">-78.75 €</td><td></td></tr><tr class=\"even\" nick=\"DerLupfer\"><td c\
+lass=\"pad_l\">21.</td><td class=\"l inaktiv\">DerLupfer</td><td class=\"fe\
+tt\">4737</td><td class=\"c\">4</td><td>1224</td><td><span>552</span></td><\
+td>45.10%</td><td>322</td><td>139</td><td><span>91</span></td><td>8.5815</t\
+d><td>41</td><td><span>9<zaehler>1</zaehler>/<nenner>6</nenner></span></td>\
+<td class=\"pad_r r fett u_avg\">-48.16 €</td><td></td></tr><tr class=\"odd\
 \" nick=\"Kylar\"><td class=\"pad_l\">22.</td><td class=\"l\">Kylar</td><td\
- class=\"fett\">4288</td><td class=\"c\">3.18</td><td>973</td><td><span>498\
-</span></td><td>51.18%</td><td>288</td><td>116</td><td><span>94</span></td>\
-<td>8.6104</td><td>-</td><td><span>7<zaehler>3</zaehler>/<nenner>4</nenner>\
+ class=\"fett\">4304</td><td class=\"c\">3.20</td><td>979</td><td><span>500\
+</span></td><td>51.07%</td><td>290</td><td>116</td><td><span>94</span></td>\
+<td>8.6080</td><td>-</td><td><span>7<zaehler>3</zaehler>/<nenner>4</nenner>\
 </span></td><td class=\"pad_r r fett u_avg\">-25.75 €</td><td></td></tr><tr\
  class=\"even\" nick=\"LeBleu\"><td class=\"pad_l\">23.</td><td class=\"l\"\
->LeBleu</td><td class=\"fett\">4181</td><td class=\"c\">3.18</td><td>973</t\
-d><td><span>487</span></td><td>50.05%</td><td>290</td><td>109</td><td><span\
->88</span></td><td>8.5852</td><td>-</td><td><span>10</span></td><td class=\
+>LeBleu</td><td class=\"fett\">4206</td><td class=\"c\">3.20</td><td>979</t\
+d><td><span>490</span></td><td>50.05%</td><td>292</td><td>110</td><td><span\
+>88</span></td><td>8.5837</td><td>-</td><td><span>10</span></td><td class=\
 \"pad_r r fett u_avg\">-47.00 €</td><td></td></tr><tr class=\"odd\" nick=\"\
 balboa\"><td class=\"pad_l\">24.</td><td class=\"l inaktiv\">balboa</td><td\
  class=\"fett\">3672</td><td class=\"c\">3</td><td>918</td><td><span>430</s\
