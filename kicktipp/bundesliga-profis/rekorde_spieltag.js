@@ -61,11 +61,13 @@ ass=\"pad_r\">4 1 2</td></tr><tr class=\"even\" nick=\"Guenter\" style=\"\"\
 /2024</td><td>25</td><td class=\"pad_r\">4 1 2</td></tr><tr class=\"even\" \
 nick=\"Karsten\" style=\"\"><td class=\"pad_l\"></td><td class=\"l\">Karste\
 n</td><td>2026/2027</td><td>3</td><td class=\"pad_r\">4 1 2</td></tr><tr cl\
-ass=\"odd\" nick=\"Striker\" style=\"\"><td class=\"pad_l\"></td><td class=\
-\"l\">Striker</td><td>2017/2018</td><td>18</td><td class=\"pad_r\">4 1 2</t\
-d></tr><tr class=\"even\" nick=\"Striker\" style=\"\"><td class=\"pad_l\"><\
-/td><td class=\"l\">Striker</td><td>2025/2026</td><td>8</td><td class=\"pad\
-_r\">4 1 2</td></tr></table><p class=\"nicknamechangelegendtitle\">* Nickna\
-meänderungen:</p><table class=\"kicktipp\" width=\"750px\"><tr class=\"even\
-\"><td class=\"pad_l\">Adal ➔ Chiclanero</td></tr></table>\
+ass=\"odd\" nick=\"KoloSoft\" style=\"\"><td class=\"pad_l\"></td><td class\
+=\"l\">KoloSoft</td><td>2026/2027</td><td>9</td><td class=\"pad_r\">4 1 2</\
+td></tr><tr class=\"even\" nick=\"Striker\" style=\"\"><td class=\"pad_l\">\
+</td><td class=\"l\">Striker</td><td>2017/2018</td><td>18</td><td class=\"p\
+ad_r\">4 1 2</td></tr><tr class=\"odd\" nick=\"Striker\" style=\"\"><td cla\
+ss=\"pad_l\"></td><td class=\"l\">Striker</td><td>2025/2026</td><td>8</td><\
+td class=\"pad_r\">4 1 2</td></tr></table><p class=\"nicknamechangelegendti\
+tle\">* Nicknameänderungen:</p><table class=\"kicktipp\" width=\"750px\"><t\
+r class=\"even\"><td class=\"pad_l\">Adal ➔ Chiclanero</td></tr></table>\
 ');
